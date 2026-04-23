@@ -26,17 +26,32 @@ def calculate_food_tag_score(dish_tags: list, wine_tags: dict) -> float:
     # Ex: 1 match = 0.8, 2+ matches = 1.0
     return min(1.0, 0.6 + (matches * 0.2))
 
-def calculate_flavor_score(dish_flavors: list, wine_flavors: list) -> float:
+def calculate_flavor_score(dish_flavors: list, wine_flavors: list, dish_flavors_exclude: list = None) -> float:
     """
     Calcula o score de flavors usando RapidFuzz [0.0, 1.0].
-    dish_flavors: lista de strings sugeridas (ex: ["carvalho", "amora"])
-    wine_flavors: lista de dicts (ex: [{"group": "oak", "keyword": "carvalho", "count": 50}])
+    Se o vinho possuir sabores listados em dish_flavors_exclude, o score final sofrerá grave punição.
     """
-    if not dish_flavors or not wine_flavors:
+    if not wine_flavors:
         return 0.0
         
     matches_found = 0
+    penalty = 0.0
     
+    # 1. Punição por Sabores Indesejados (Ex: "carvalho" no Sushi)
+    if dish_flavors_exclude:
+        for ex in dish_flavors_exclude:
+            ex_lower = ex.lower().strip()
+            for wf in wine_flavors:
+                wf_lower = wf.get("keyword", "").lower()
+                # Se o vinho tem um sabor claramente proibido
+                if fuzz.ratio(ex_lower, wf_lower) >= 85 or ex_lower in wf_lower:
+                    penalty += 4.0 # Punição fatal
+                    break
+    
+    # 2. Matching de Sabores Desejados
+    if not dish_flavors:
+        return max(0.0, 1.0 - penalty) if not dish_flavors_exclude else 0.0
+        
     for df in dish_flavors:
         df_lower = df.lower().strip()
         best_match_ratio = 0
@@ -47,11 +62,13 @@ def calculate_flavor_score(dish_flavors: list, wine_flavors: list) -> float:
             if ratio > best_match_ratio:
                 best_match_ratio = ratio
                 
-        # Se achou uma palavra muito parecida (>85%), considera um match
         if best_match_ratio >= 85:
             matches_found += 1
             
-    return matches_found / len(dish_flavors)
+    raw_score = matches_found / len(dish_flavors)
+    
+    # Aplica a punição (pode ficar negativo para derrubar o score total do vinho)
+    return raw_score - penalty
 
 def _calc_structure_dist(val: float, target_range: list) -> float:
     """Retorna 1.0 se tiver dentro do range, senao perde proporcional a distancia de 5 pontos"""
@@ -107,6 +124,21 @@ def calculate_rating_score(rating: float) -> float:
         
     return min(1.0, (rating - 3.0) / 2.0)
 
+def calculate_style_penalty(avoid_styles: list, wine_name: str, wine_style: str) -> float:
+    """Retorna uma punição fatal se o vinho for de um estilo proibido para o prato."""
+    if not avoid_styles:
+        return 0.0
+        
+    w_name = (wine_name or "").lower()
+    w_style = (wine_style or "").lower()
+    
+    for av in avoid_styles:
+        av_lower = av.lower()
+        if av_lower in w_name or av_lower in w_style:
+            return 4.0 # Punição fatal
+            
+    return 0.0
+
 def calculate_total_score(dish_data: dict, wine_data: dict) -> dict:
     """
     Aplica a formula completa e retorna os componentes detalhados.
@@ -118,15 +150,21 @@ def calculate_total_score(dish_data: dict, wine_data: dict) -> dict:
     W_RATING = 0.00 # Apenas desempate (adicionado depois do total)
     
     s_food = calculate_food_tag_score(dish_data.get("vivino_food_tags", []), wine_data.get("food_tags", {}))
-    s_flavor = calculate_flavor_score(dish_data.get("flavor_keywords_match", []), wine_data.get("flavors", []))
+    s_flavor = calculate_flavor_score(
+        dish_data.get("flavor_keywords_match", []), 
+        wine_data.get("flavors", []),
+        dish_data.get("flavor_keywords_exclude", [])
+    )
     s_struct = calculate_structure_score(dish_data.get("target_structure", {}), wine_data.get("structure", {}))
     s_rating = calculate_rating_score(wine_data.get("rating", 0))
     
+    style_penalty = calculate_style_penalty(dish_data.get("avoid_styles", []), wine_data.get("name"), wine_data.get("style_name"))
+    
     # Adiciona 0.01 * s_rating só pra não dar empate exato, mas sem afetar os outros fatores
-    total = (W_FOOD * s_food) + (W_FLAVOR * s_flavor) + (W_STRUCT * s_struct) + (0.01 * s_rating)
+    total = (W_FOOD * s_food) + (W_FLAVOR * s_flavor) + (W_STRUCT * s_struct) + (0.01 * s_rating) - style_penalty
     
     return {
-        "total_score": round(total, 4),
+        "total_score": round(max(0.0, total), 4),
         "components": {
             "s_food": round(s_food, 3),
             "s_flavor": round(s_flavor, 3),

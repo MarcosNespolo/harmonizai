@@ -37,7 +37,7 @@ class RecommendationEngine:
         query = f"""
             SELECT 
                 id, name, winery, type_id, avg_rating,
-                body, acidity_raw, tannin, sweetness
+                body, acidity_raw, tannin, sweetness, style_name
             FROM wines
             WHERE type_id IN ({placeholders})
         """
@@ -48,7 +48,7 @@ class RecommendationEngine:
         recommendations = []
         
         for w in wines:
-            wine_id, name, winery, type_id, avg_rating, body, acidity, tannin, sweetness = w
+            wine_id, name, winery, type_id, avg_rating, body, acidity, tannin, sweetness, style_name = w
             
             # Formatar pra passar pro scorer
             wine_data = {
@@ -57,6 +57,7 @@ class RecommendationEngine:
                 "winery": winery,
                 "type_id": type_id,
                 "rating": avg_rating,
+                "style_name": style_name,
                 "structure": {
                     "body": body,
                     "acidity": acidity,
