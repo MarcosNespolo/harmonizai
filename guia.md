@@ -459,6 +459,33 @@ Para cada prato-âncora cadastrado, confirmar os valores de `target_structure` e
 
 Este processo gera um "paper trail" útil para o README e credibilidade do projeto.
 
+**Resultados da validação (20 pratos-âncora)**:
+
+| # | Prato | Confiança | Fontes | Validação |
+|---|-------|-----------|--------|-----------|
+| 1 | Churrasco | ✅ high | Wine Enthusiast, Forbes, Vivino, Descorchados | Malbec/Cabernet/Tannat confirmados. Taninos altos para cortar gordura. |
+| 2 | Feijoada | ✅ high | Wine Enthusiast, consenso BR | Syrah/Malbec confirmados. Acidez alta para prato pesado. |
+| 3 | Moqueca | ✅ high | Wine Food Matcher, try.vi | Alvarinho/Viognier/Rosé confirmados. Evitar tintos tânicos. |
+| 4 | Risoto cogumelos | ✅ high | Vivino, Sommy.ai, Winevizer | Pinot Noir/Chardonnay unoaked confirmados. Evitar carvalho pesado. |
+| 5 | Carbonara | ✅ high | Winetravelista, Italy Edit, Italy's Finest | Frascati/Soave/Barbera confirmados. Acidez é prioridade. |
+| 6 | Lasanha bolonhesa | ✅ high | What to Drink, Decanter | Chianti/Sangiovese confirmados. Acidez alta para molho de tomate. |
+| 7 | Pizza margherita | ✅ high | Wine Spectator, consenso | Chianti/Barbera/Rosé confirmados. Match regional italiano. |
+| 8 | Pizza calabresa | ✅ high | Wine Spectator | Zinfandel/Primitivo confirmados. Corpo e frutado para embutido. |
+| 9 | Filé mignon madeira | ✅ high | What to Drink | Cabernet/Merlot/Bordeaux confirmados. Encorpado e elegante. |
+| 10 | Salmão grelhado | ✅ high | Millesima, La Crema, Wine Folly | Pinot Noir/Chardonnay confirmados. Peixe gordo aceita tinto leve. |
+| 11 | Bacalhau Gomes de Sá | ✅ high | Wine Tourism Portugal, Cellar Tours | Alvarinho/Vinho Verde confirmados. Mineralidade para sal do bacalhau. |
+| 12 | Sushi variado | ✅ high | Laurent-Perrier, Wine4Food, Millesima | Champagne/Riesling/Chablis confirmados. Evitar taninos com peixe cru. |
+| 13 | Tartare de atum | ✅ high | What to Drink | Sancerre/Sauvignon Blanc/Rosé confirmados. Herbáceo + cítrico. |
+| 14 | Queijo brie geleia | ✅ high | What to Drink | Champagne/Chenin Blanc confirmados. Bolhas limpam cremosidade. |
+| 15 | Queijo azul | ✅ high | Natalie MacLean, Wine Enthusiast, Decanter | Porto/Sauternes/Tokaji confirmados. Contraste salgado-doce é clássico. |
+| 16 | Camarão alho e óleo | ✅ high | What to Drink, Decanter | Albariño/Sauvignon Blanc confirmados. Branco seco e mineral. |
+| 17 | Paella frutos do mar | ✅ high | KJ, Alcohol Professor, Ferrer Wines | Albariño/Verdejo/Cava confirmados. Match regional espanhol. |
+| 18 | Cordeiro assado | ✅ high | What to Drink, Wine Spectator | Cabernet/Rioja/Bordeaux confirmados. Clássico da harmonização. |
+| 19 | Frango assado | ✅ high | What to Drink | Chardonnay/Pinot Noir confirmados. Prato versátil. |
+| 20 | Salada caprese | ✅ high | Wine Spectator, consenso | Sauvignon Blanc/Vermentino confirmados. Branco leve e herbáceo. |
+
+**Conclusão**: Todos os 20 pratos receberam confiança `high`. As recomendações de `preferred_styles` e `target_structure` no YAML estão alinhadas com o consenso de múltiplas fontes especializadas (Wine Spectator, Decanter, What to Drink with What You Eat, sommeliers brasileiros e europeus). Nenhum ajuste necessário no YAML.
+
 ---
 
 #### 4.2.5 Sub-etapa 5 — Expansão para 50 pratos

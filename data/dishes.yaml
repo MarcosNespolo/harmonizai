@@ -509,3 +509,4041 @@
   source: "Wine Spectator + consenso"
   curated_by: manual
   confidence: high
+- id: acaraje
+  display_name: Acarajé
+  cuisine: brasileira
+  aliases:
+  - acaraje baiano
+  - acarajé com vatapá
+  ingredients_primary:
+  - feijao_fradinho
+  - dende
+  - camarao
+  - vatapa
+  ingredients_secondary:
+  - cebola
+  - pimenta
+  cooking_method: frito
+  main_protein: frutos_do_mar
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Marisco
+  - Comida picante
+  flavor_keywords_match:
+  - pimenta
+  - tropical
+  - pêssego
+  - citrino
+  target_structure:
+    body:
+    - 2.5
+    - 4.0
+    acidity:
+    - 3.5
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.5
+    - 3.0
+  suggested_wine_types:
+  - 3
+  - 2
+  - 4
+  preferred_styles:
+  - Espumante Brut
+  - Gewürztraminer
+  - Riesling
+  sommelier_notes: A fritura e o dendê pedem espumantes para limpar o paladar ou brancos
+    aromáticos que suportem a pimenta.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: bobo_camarao
+  display_name: Bobó de Camarão
+  cuisine: brasileira
+  aliases:
+  - bobo
+  - creme de camarão com mandioca
+  ingredients_primary:
+  - camarao
+  - mandioca
+  - leite_de_coco
+  - dende
+  ingredients_secondary:
+  - coentro
+  - tomate
+  - pimentao
+  cooking_method: cremoso
+  main_protein: frutos_do_mar
+  vivino_food_tags:
+  - Marisco
+  - Peixe (salmão, atum etc.)
+  flavor_keywords_match:
+  - manteiga
+  - tropical
+  - creme
+  - pêssego
+  - abacaxi
+  target_structure:
+    body:
+    - 3.0
+    - 4.5
+    acidity:
+    - 3.0
+    - 4.5
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 2.5
+  suggested_wine_types:
+  - 2
+  - 4
+  preferred_styles:
+  - Chardonnay
+  - Viognier
+  - Rosé
+  sommelier_notes: A textura cremosa da mandioca e do coco pede um branco com corpo,
+    como Chardonnay com madeira ou Viognier.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: barreado
+  display_name: Barreado
+  cuisine: brasileira
+  aliases:
+  - barreado paranaense
+  - carne cozida desfiada
+  ingredients_primary:
+  - carne_vermelha
+  - toucinho
+  - farinha_mandioca
+  ingredients_secondary:
+  - cebola
+  - alho
+  - cominho
+  - louro
+  cooking_method: cozido
+  main_protein: carne_vermelha
+  vivino_food_tags:
+  - Carne de vaca
+  flavor_keywords_match:
+  - carvalho
+  - ameixa
+  - especiarias
+  - fumaça
+  - terra
+  target_structure:
+    body:
+    - 3.5
+    - 5.0
+    acidity:
+    - 3.0
+    - 4.0
+    tannin:
+    - 3.0
+    - 4.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Malbec
+  - Syrah
+  - Merlot
+  sommelier_notes: Cozimento longo e carne desfiando com farinha pedem tintos rústicos,
+    encorpados e com boa carga de frutas escuras.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: costela_fogo_chao
+  display_name: Costela no Fogo de Chão
+  cuisine: brasileira
+  aliases:
+  - costela assada
+  - costela gaucha
+  - costelão
+  ingredients_primary:
+  - costela_bovina
+  ingredients_secondary:
+  - sal_grosso
+  cooking_method: assado
+  main_protein: carne_vermelha
+  vivino_food_tags:
+  - Carne de vaca
+  flavor_keywords_match:
+  - fumaça
+  - carvalho
+  - couro
+  - tabaco
+  - amora
+  target_structure:
+    body:
+    - 4.0
+    - 5.0
+    acidity:
+    - 3.0
+    - 4.0
+    tannin:
+    - 3.5
+    - 5.0
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Tannat
+  - Cabernet Sauvignon
+  - Malbec
+  sommelier_notes: Carne muito gorda e defumada exige taninos potentes e acidez para
+    limpar o paladar. Tannat é a escolha clássica gaúcha.
+  source: Guia Descorchados
+  curated_by: manual
+  confidence: high
+- id: escondidinho_carne_seca
+  display_name: Escondidinho de Carne Seca
+  cuisine: brasileira
+  aliases:
+  - escondidinho
+  - purê de mandioca com carne seca
+  ingredients_primary:
+  - mandioca
+  - carne_seca
+  - queijo_coalho
+  ingredients_secondary:
+  - manteiga
+  - cebola
+  - creme_de_leite
+  cooking_method: assado
+  main_protein: carne_vermelha
+  vivino_food_tags:
+  - Carne curada
+  - Carne de vaca
+  flavor_keywords_match:
+  - carvalho
+  - manteiga
+  - cereja
+  - ameixa
+  - queijo
+  target_structure:
+    body:
+    - 3.0
+    - 4.5
+    acidity:
+    - 3.0
+    - 4.0
+    tannin:
+    - 2.0
+    - 3.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  - 2
+  preferred_styles:
+  - Carménère
+  - Merlot
+  - Chardonnay (oaked)
+  sommelier_notes: A carne seca sugere um tinto de corpo médio com notas de especiarias
+    (Carménère), mas a mandioca com queijo também aceita um branco encorpado.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: pato_tucupi
+  display_name: Pato no Tucupi
+  cuisine: brasileira
+  aliases:
+  - pato com tucupi e jambu
+  ingredients_primary:
+  - pato
+  - tucupi
+  - jambu
+  ingredients_secondary:
+  - alho
+  - chicoria
+  - pimenta_de_cheiro
+  cooking_method: cozido
+  main_protein: ave
+  vivino_food_tags:
+  - Aves
+  flavor_keywords_match:
+  - erva
+  - pimenta
+  - citrino
+  - maçã
+  - grama
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 4.0
+    - 5.0
+    tannin:
+    - 1.0
+    - 2.0
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 2
+  - 4
+  preferred_styles:
+  - Sauvignon Blanc
+  - Riesling
+  - Rosé
+  sommelier_notes: O tucupi é muito ácido e o jambu anestesia levemente. Pede brancos
+    de acidez vibrante e notas herbáceas, ou um rosé refrescante.
+  source: Revista Adega
+  curated_by: manual
+  confidence: high
+- id: galinhada
+  display_name: Galinhada
+  cuisine: brasileira
+  aliases:
+  - arroz com frango
+  - galinhada caipira
+  ingredients_primary:
+  - frango
+  - arroz
+  - pequi
+  - acafrao
+  ingredients_secondary:
+  - cebola
+  - alho
+  - pimentao
+  - milho
+  cooking_method: cozido
+  main_protein: ave
+  vivino_food_tags:
+  - Aves
+  flavor_keywords_match:
+  - maçã
+  - pera
+  - tropical
+  - terra
+  - ervas secas
+  target_structure:
+    body:
+    - 2.5
+    - 4.0
+    acidity:
+    - 3.0
+    - 4.0
+    tannin:
+    - 1.5
+    - 2.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 2
+  - 1
+  - 4
+  preferred_styles:
+  - Chardonnay
+  - Pinot Noir
+  - Rosé
+  sommelier_notes: Prato rústico de ave com arroz absorvendo os sabores. Um Chardonnay
+    com leve carvalho ou um tinto leve e terroso vão super bem.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: picadinho
+  display_name: Picadinho de Carne
+  cuisine: brasileira
+  aliases:
+  - picadinho carioca
+  - carne picadinha
+  - picadinho com ovo
+  ingredients_primary:
+  - carne_vermelha
+  - molho_tomate
+  - caldo_carne
+  ingredients_secondary:
+  - arroz
+  - feijao
+  - ovo
+  - banana_milanesa
+  cooking_method: cozido
+  main_protein: carne_vermelha
+  vivino_food_tags:
+  - Carne de vaca
+  flavor_keywords_match:
+  - cereja
+  - ameixa
+  - tomate
+  - carvalho
+  - baunilha
+  target_structure:
+    body:
+    - 3.0
+    - 4.5
+    acidity:
+    - 3.0
+    - 4.5
+    tannin:
+    - 2.0
+    - 3.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Merlot
+  - Carménère
+  - Sangiovese
+  sommelier_notes: Molho rico de carne pede tintos de corpo médio e macios, que abracem
+    o molho sem brigar com o ovo ou a banana.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: tutu_feijao
+  display_name: Tutu de Feijão
+  cuisine: brasileira
+  aliases:
+  - tutu à mineira
+  - tutu com bisteca
+  ingredients_primary:
+  - feijao
+  - farinha_mandioca
+  - bacon
+  - linguica
+  ingredients_secondary:
+  - alho
+  - couve
+  - ovo
+  cooking_method: refogado
+  main_protein: carne_porco
+  vivino_food_tags:
+  - Carne de porco
+  - Carne curada
+  flavor_keywords_match:
+  - fumaça
+  - pimenta
+  - carvalho
+  - ameixa
+  - tabaco
+  target_structure:
+    body:
+    - 3.0
+    - 4.5
+    acidity:
+    - 3.0
+    - 4.0
+    tannin:
+    - 2.0
+    - 3.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Syrah
+  - Malbec
+  - Tempranillo
+  sommelier_notes: Rico, espesso e defumado. Pede tintos com notas de especiarias
+    e frutas maduras para equilibrar a textura da farinha e as carnes de porco.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: rabada
+  display_name: Rabada
+  cuisine: brasileira
+  aliases:
+  - rabada com agrião
+  - rabo de boi
+  ingredients_primary:
+  - rabo_bovino
+  - molho_tomate
+  - agriao
+  ingredients_secondary:
+  - cebola
+  - alho
+  - vinho_tinto
+  - louro
+  cooking_method: cozido
+  main_protein: carne_vermelha
+  vivino_food_tags:
+  - Carne de vaca
+  flavor_keywords_match:
+  - amora
+  - ameixa
+  - carvalho
+  - pimenta
+  - couro
+  target_structure:
+    body:
+    - 4.0
+    - 5.0
+    acidity:
+    - 3.0
+    - 4.5
+    tannin:
+    - 3.0
+    - 4.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Cabernet Sauvignon
+  - Syrah
+  - Nebbiolo
+  sommelier_notes: Carne extremamente gordurosa e gelatinosa com sabor forte. Exige
+    tintos muito encorpados, alta acidez e taninos firmes para cortar a gordura.
+  source: Guia Descorchados
+  curated_by: manual
+  confidence: high
+- id: ossobuco
+  display_name: Ossobuco com Polenta
+  cuisine: italiana
+  aliases:
+  - ossobuco alla milanese
+  - ossobuco
+  ingredients_primary:
+  - vitela
+  - tutano
+  - polenta
+  - molho_tomate
+  ingredients_secondary:
+  - vinho_branco
+  - cenoura
+  - aipo
+  - cebola
+  cooking_method: cozido
+  main_protein: vitela
+  vivino_food_tags:
+  - Vitela
+  - Carne de vaca
+  flavor_keywords_match:
+  - cereja
+  - carvalho
+  - couro
+  - terra
+  - ervas secas
+  target_structure:
+    body:
+    - 3.5
+    - 5.0
+    acidity:
+    - 3.5
+    - 5.0
+    tannin:
+    - 2.5
+    - 4.0
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Nebbiolo
+  - Barolo
+  - Sangiovese
+  sommelier_notes: O clássico milanês com tutano gorduroso pede a acidez e os taninos
+    rigorosos de um grande tinto do Piemonte, como Barolo ou Barbaresco.
+  source: What to Drink with What You Eat
+  curated_by: manual
+  confidence: high
+- id: nhoque_ragu
+  display_name: Nhoque ao Ragu
+  cuisine: italiana
+  aliases:
+  - gnocchi
+  - nhoque à bolonhesa
+  - gnocchi com carne
+  ingredients_primary:
+  - massa
+  - batata
+  - carne_moida
+  - molho_tomate
+  ingredients_secondary:
+  - queijo_parmesao
+  - cebola
+  - cenoura
+  - alho
+  cooking_method: cozido
+  main_protein: carne_vermelha
+  vivino_food_tags:
+  - Massa
+  - Carne de vaca
+  flavor_keywords_match:
+  - cereja
+  - ameixa
+  - tomate
+  - carvalho
+  - baunilha
+  target_structure:
+    body:
+    - 3.0
+    - 4.5
+    acidity:
+    - 3.5
+    - 5.0
+    tannin:
+    - 2.0
+    - 3.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Chianti Classico
+  - Barbera
+  - Montepulciano d'Abruzzo
+  sommelier_notes: O ragu pede acidez e fruta vermelha para casar com o tomate. Tintos
+    italianos do dia a dia são a escolha perfeita.
+  source: Wine Spectator
+  curated_by: manual
+  confidence: high
+- id: pesto_genovese
+  display_name: Massa ao Pesto
+  cuisine: italiana
+  aliases:
+  - macarrão ao pesto
+  - penne ao pesto
+  - trenette al pesto
+  ingredients_primary:
+  - massa
+  - manjericao
+  - azeite
+  - pinoli
+  - queijo_pecorino
+  ingredients_secondary:
+  - alho
+  cooking_method: cozido
+  main_protein: 'null'
+  vivino_food_tags:
+  - Massa
+  - Vegetariano
+  flavor_keywords_match:
+  - grama
+  - limão
+  - erva
+  - maçã verde
+  - minerais
+  target_structure:
+    body:
+    - 1.5
+    - 3.0
+    acidity:
+    - 3.5
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 2
+  preferred_styles:
+  - Vermentino
+  - Sauvignon Blanc
+  - Pinot Grigio
+  sommelier_notes: Pesto é pura erva, azeite e alho. Brancos herbáceos, crocantes
+    e cítricos como Vermentino (da mesma região) ou Sauvignon Blanc brilham aqui.
+  source: Decanter
+  curated_by: manual
+  confidence: high
+- id: risoto_camarao
+  display_name: Risoto de Camarão
+  cuisine: italiana
+  aliases:
+  - risotto de camarão
+  - risoto com frutos do mar
+  ingredients_primary:
+  - arroz
+  - camarao
+  - caldo_legumes
+  - manteiga
+  - parmesao
+  ingredients_secondary:
+  - vinho_branco
+  - cebola
+  - alho
+  cooking_method: cremoso
+  main_protein: frutos_do_mar
+  vivino_food_tags:
+  - Massa
+  - Marisco
+  flavor_keywords_match:
+  - citrino
+  - manteiga
+  - maçã
+  - pêssego
+  - minerais
+  target_structure:
+    body:
+    - 2.5
+    - 4.0
+    acidity:
+    - 3.0
+    - 4.5
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 2
+  - 4
+  preferred_styles:
+  - Chardonnay
+  - Verdicchio
+  - Rosé de Provence
+  sommelier_notes: A cremosidade do risoto pede brancos com certa estrutura, enquanto
+    o camarão pede frescor. Chardonnay com leve passagem por madeira ou Verdicchio.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: cacio_e_pepe
+  display_name: Cacio e Pepe
+  cuisine: italiana
+  aliases:
+  - espaguete cacio e pepe
+  - massa cacio e pepe
+  ingredients_primary:
+  - massa
+  - queijo_pecorino
+  - pimenta_preta
+  ingredients_secondary:
+  - agua_cozimento
+  cooking_method: cozido
+  main_protein: 'null'
+  vivino_food_tags:
+  - Massa
+  - Vegetariano
+  flavor_keywords_match:
+  - pimenta
+  - manteiga
+  - limão
+  - maçã
+  - minerais
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 3.5
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 2
+  - 3
+  preferred_styles:
+  - Frascati
+  - Pecorino (vinho)
+  - Franciacorta
+  sommelier_notes: Prato romano, salgado e picante pela pimenta. Brancos italianos
+    com textura e boa acidez para limpar o queijo Pecorino, ou espumantes.
+  source: What to Drink with What You Eat
+  curated_by: manual
+  confidence: high
+- id: tiramisu
+  display_name: Tiramisu
+  cuisine: italiana
+  aliases:
+  - tiramisù
+  - sobremesa italiana de café
+  ingredients_primary:
+  - mascarpone
+  - cafe
+  - biscoito_champagne
+  - cacau
+  ingredients_secondary:
+  - ovos
+  - acucar
+  - licor
+  cooking_method: 'null'
+  main_protein: 'null'
+  vivino_food_tags:
+  - Sobremesa
+  flavor_keywords_match:
+  - chocolate
+  - café
+  - caramelo
+  - baunilha
+  - noz
+  target_structure:
+    body:
+    - 3.5
+    - 5.0
+    acidity:
+    - 2.0
+    - 3.5
+    tannin:
+    - 1.0
+    - 2.5
+    sweetness:
+    - 4.0
+    - 5.0
+  suggested_wine_types:
+  - 24
+  - 7
+  preferred_styles:
+  - Vin Santo
+  - Marsala Doce
+  - Porto Tawny
+  sommelier_notes: As notas de café, cacau e creme de mascarpone harmonizam perfeitamente
+    com vinhos fortificados italianos como Vin Santo ou Marsala.
+  source: Wine Enthusiast
+  curated_by: manual
+  confidence: high
+- id: coq_au_vin
+  display_name: Coq au Vin
+  cuisine: francesa
+  aliases:
+  - frango ao vinho tinto
+  - galo ao vinho
+  ingredients_primary:
+  - frango
+  - vinho_tinto
+  - cogumelo
+  - bacon
+  ingredients_secondary:
+  - cebola_perola
+  - alho
+  - tomilho
+  - cenoura
+  cooking_method: cozido
+  main_protein: ave
+  vivino_food_tags:
+  - Aves
+  flavor_keywords_match:
+  - cereja
+  - cogumelo
+  - terra
+  - carvalho
+  - fumaça
+  target_structure:
+    body:
+    - 2.5
+    - 4.0
+    acidity:
+    - 3.0
+    - 4.5
+    tannin:
+    - 1.5
+    - 3.0
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Pinot Noir (Burgundy)
+  - Cru Beaujolais
+  - Merlot
+  sommelier_notes: Sendo um clássico da Borgonha feito com vinho tinto, o par perfeito
+    é o próprio Pinot Noir da região, que ecoa a terra e os cogumelos do prato.
+  source: What to Drink with What You Eat
+  curated_by: manual
+  confidence: high
+- id: boeuf_bourguignon
+  display_name: Boeuf Bourguignon
+  cuisine: francesa
+  aliases:
+  - carne ao vinho tinto
+  - bourguignon
+  ingredients_primary:
+  - carne_vermelha
+  - vinho_tinto
+  - cogumelo
+  - bacon
+  ingredients_secondary:
+  - cebola_perola
+  - cenoura
+  - alho
+  - ervas
+  cooking_method: cozido
+  main_protein: carne_vermelha
+  vivino_food_tags:
+  - Carne de vaca
+  flavor_keywords_match:
+  - cereja
+  - terra
+  - cogumelo
+  - carvalho
+  - amora
+  target_structure:
+    body:
+    - 3.0
+    - 4.5
+    acidity:
+    - 3.0
+    - 4.5
+    tannin:
+    - 2.0
+    - 3.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Pinot Noir (Burgundy)
+  - Syrah
+  - Cabernet Franc
+  sommelier_notes: Outro clássico da Borgonha. Pinot Noir é a tradição, mas cortes
+    bordaleses mais leves ou um bom Syrah (Rhône) também brilham com os sabores intensos
+    e cozidos.
+  source: Decanter
+  curated_by: manual
+  confidence: high
+- id: ratatouille
+  display_name: Ratatouille
+  cuisine: francesa
+  aliases:
+  - legumes ensopados
+  - ratatouille provençal
+  ingredients_primary:
+  - berinjela
+  - abobrinha
+  - pimentao
+  - tomate
+  ingredients_secondary:
+  - cebola
+  - alho
+  - azeite
+  - ervas_provence
+  cooking_method: cozido
+  main_protein: 'null'
+  vivino_food_tags:
+  - Vegetariano
+  flavor_keywords_match:
+  - tomate
+  - erva
+  - cereja
+  - pêssego
+  - limão
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 3.5
+    - 4.5
+    tannin:
+    - 1.0
+    - 2.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 4
+  - 1
+  - 2
+  preferred_styles:
+  - Rosé de Provence
+  - Grenache
+  - Sauvignon Blanc
+  sommelier_notes: Prato provençal pede vinho provençal. Rosé seco é imbatível. Tintos
+    muito leves como Grenache sem madeira também vão muito bem com os legumes e tomate.
+  source: Wine Spectator
+  curated_by: manual
+  confidence: high
+- id: escargot
+  display_name: Escargot
+  cuisine: francesa
+  aliases:
+  - escargots de bourgogne
+  - caracol na manteiga
+  ingredients_primary:
+  - escargot
+  - manteiga
+  - alho
+  - salsa
+  ingredients_secondary:
+  - pao_frances
+  cooking_method: assado
+  main_protein: frutos_do_mar
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Marisco
+  flavor_keywords_match:
+  - manteiga
+  - limão
+  - minerais
+  - grama
+  - maçã
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 3.5
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 2
+  preferred_styles:
+  - Chablis
+  - Sauvignon Blanc
+  - Chardonnay (unoaked)
+  sommelier_notes: Essencialmente um veículo para manteiga de alho e salsa. Pede brancos
+    ultra secos, com alta acidez e notas herbáceas para limpar a boca. Chablis é a
+    referência.
+  source: What to Drink with What You Eat
+  curated_by: manual
+  confidence: high
+- id: foie_gras
+  display_name: Foie Gras
+  cuisine: francesa
+  aliases:
+  - foie gras
+  - fígado gordo
+  ingredients_primary:
+  - foie_gras
+  ingredients_secondary:
+  - torrada
+  - geleia_figo
+  - flor_de_sal
+  cooking_method: grelhado
+  main_protein: ave
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Carne curada
+  flavor_keywords_match:
+  - mel
+  - damasco
+  - pêssego
+  - maçã
+  - caramelo
+  target_structure:
+    body:
+    - 3.5
+    - 5.0
+    acidity:
+    - 3.0
+    - 4.5
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 3.5
+    - 5.0
+  suggested_wine_types:
+  - 7
+  - 2
+  preferred_styles:
+  - Sauternes
+  - Late Harvest
+  - Champagne
+  sommelier_notes: 'Um dos casamentos mais clássicos do mundo: a riqueza untuosa do
+    fígado com a doçura e acidez divina do Sauternes. Champagne também corta bem a
+    gordura.'
+  source: Consenso mundial
+  curated_by: manual
+  confidence: high
+- id: tempura
+  display_name: Tempurá
+  cuisine: japonesa
+  aliases:
+  - tempura de camarão
+  - tempura de legumes
+  - fritura japonesa
+  ingredients_primary:
+  - camarao
+  - legumes
+  - massa_tempura
+  - oleo
+  ingredients_secondary:
+  - molho_tentsuyu
+  - nabo
+  cooking_method: frito
+  main_protein: frutos_do_mar
+  vivino_food_tags:
+  - Marisco
+  - Vegetariano
+  flavor_keywords_match:
+  - limão
+  - minerais
+  - maçã verde
+  - brioche
+  - pera
+  target_structure:
+    body:
+    - 1.5
+    - 3.0
+    acidity:
+    - 4.0
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 3
+  - 2
+  preferred_styles:
+  - Champagne
+  - Cava
+  - Riesling Trocken
+  sommelier_notes: Fritura delicada pede espumante. As bolhas limpam a textura crocante
+    e o óleo sem matar os sabores delicados do camarão ou dos vegetais.
+  source: Decanter
+  curated_by: manual
+  confidence: high
+- id: ramen
+  display_name: Lámen / Ramen
+  cuisine: japonesa
+  aliases:
+  - tonkotsu ramen
+  - shoyu ramen
+  - miso ramen
+  ingredients_primary:
+  - macarrao
+  - caldo_tonkotsu
+  - carne_porco
+  ingredients_secondary:
+  - ovo
+  - cebolinha
+  - nori
+  - brotos
+  cooking_method: cozido
+  main_protein: carne_porco
+  vivino_food_tags:
+  - Carne de porco
+  - Massa
+  flavor_keywords_match:
+  - maçã
+  - pêssego
+  - minerais
+  - mel
+  - cereja
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 3.5
+    - 5.0
+    tannin:
+    - 1.0
+    - 2.0
+    sweetness:
+    - 1.0
+    - 2.5
+  suggested_wine_types:
+  - 2
+  - 1
+  - 4
+  preferred_styles:
+  - Riesling
+  - Pinot Noir
+  - Rosé seco
+  sommelier_notes: Caldo rico e muito umami. Um Riesling off-dry ou seco corta a gordura
+    do caldo e lida com temperos fortes. Tintos leves como Pinot Noir também acompanham
+    a barriga de porco (chashu).
+  source: Wine Enthusiast
+  curated_by: manual
+  confidence: high
+- id: empanada_carne
+  display_name: Empanada de Carne
+  cuisine: argentina
+  aliases:
+  - empanadas argentinas
+  - empanada de horno
+  ingredients_primary:
+  - massa
+  - carne_moida
+  - cebola
+  ingredients_secondary:
+  - ovo_cozido
+  - azeitona
+  - cominho
+  - pimenta
+  cooking_method: assado
+  main_protein: carne_vermelha
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Carne de vaca
+  flavor_keywords_match:
+  - ameixa
+  - pimenta
+  - carvalho
+  - cereja
+  - terra
+  target_structure:
+    body:
+    - 2.5
+    - 4.0
+    acidity:
+    - 3.0
+    - 4.0
+    tannin:
+    - 2.0
+    - 3.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Malbec (jovem)
+  - Bonarda
+  - Cabernet Franc
+  sommelier_notes: Entrada clássica argentina pede os vinhos tintos da região, frutados
+    e fáceis de beber, que lidam bem com o cominho e a cebola.
+  source: Guia Descorchados
+  curated_by: manual
+  confidence: high
+- id: provoleta
+  display_name: Provoleta
+  cuisine: argentina
+  aliases:
+  - provolone na brasa
+  - queijo provolone derretido
+  ingredients_primary:
+  - queijo_provolone
+  ingredients_secondary:
+  - oregano
+  - azeite
+  - pimenta_calabresa
+  cooking_method: grelhado
+  main_protein: 'null'
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Queijos maduros
+  flavor_keywords_match:
+  - carvalho
+  - amora
+  - fumaça
+  - pimenta
+  - cereja
+  target_structure:
+    body:
+    - 3.0
+    - 4.5
+    acidity:
+    - 3.0
+    - 4.0
+    tannin:
+    - 2.0
+    - 3.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Malbec
+  - Cabernet Sauvignon
+  - Syrah
+  sommelier_notes: Um queijo duro grelhado ganha crosta e defumação. Suporta surpreendentemente
+    bem tintos encorpados sul-americanos, que também limpam a gordura do prato.
+  source: Guia Descorchados
+  curated_by: manual
+  confidence: high
+- id: jamon_iberico
+  display_name: Jamón Ibérico
+  cuisine: espanhola
+  aliases:
+  - presunto cru
+  - presunto pata negra
+  - jamon serrano
+  ingredients_primary:
+  - presunto_cru
+  ingredients_secondary:
+  - pao
+  - azeite
+  cooking_method: 'null'
+  main_protein: carne_porco
+  vivino_food_tags:
+  - Carne curada
+  - Aperitivos e lanches
+  flavor_keywords_match:
+  - maçã
+  - amêndoa
+  - limão
+  - terra
+  - cereja
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 3.5
+    - 4.5
+    tannin:
+    - 1.0
+    - 2.0
+    sweetness:
+    - 1.0
+    - 1.5
+  suggested_wine_types:
+  - 2
+  - 24
+  - 1
+  preferred_styles:
+  - Jerez Fino
+  - Cava
+  - Tempranillo (jovem)
+  sommelier_notes: O casamento sagrado na Espanha é Jamón com Jerez Fino (Sherry)
+    ou Cava seco. A oxidação leve e acidez cortam a gordura que derrete na boca.
+  source: Decanter
+  curated_by: manual
+  confidence: high
+- id: pulpo_gallego
+  display_name: Polvo à Galega
+  cuisine: espanhola
+  aliases:
+  - pulpo a la gallega
+  - polvo com páprica
+  ingredients_primary:
+  - polvo
+  - batata
+  - azeite
+  - paprica_picante
+  ingredients_secondary:
+  - sal_grosso
+  cooking_method: cozido
+  main_protein: frutos_do_mar
+  vivino_food_tags:
+  - Marisco
+  - Aperitivos e lanches
+  flavor_keywords_match:
+  - limão
+  - pêssego
+  - minerais
+  - pimenta
+  - sal
+  target_structure:
+    body:
+    - 2.0
+    - 3.0
+    acidity:
+    - 3.5
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 1.5
+  suggested_wine_types:
+  - 2
+  - 4
+  preferred_styles:
+  - Albariño
+  - Godello
+  - Rosé espanhol
+  sommelier_notes: Prato galego, pede vinho galego. A páprica picante e a textura
+    do polvo casam perfeitamente com a salinidade e fruta branca do Albariño.
+  source: What to Drink with What You Eat
+  curated_by: manual
+  confidence: high
+- id: pato_laqueado
+  display_name: Pato Laqueado
+  cuisine: chinesa
+  aliases:
+  - pato de pequim
+  - peking duck
+  - pato assado chinês
+  ingredients_primary:
+  - pato
+  - molho_hoisin
+  - panqueca
+  - cebolinha
+  ingredients_secondary:
+  - pepino
+  - shoyu
+  - mel
+  cooking_method: assado
+  main_protein: ave
+  vivino_food_tags:
+  - Aves
+  - Sobremesa
+  flavor_keywords_match:
+  - cereja
+  - ameixa
+  - terra
+  - especiarias
+  - cogumelo
+  target_structure:
+    body:
+    - 2.5
+    - 4.0
+    acidity:
+    - 3.0
+    - 4.5
+    tannin:
+    - 1.5
+    - 2.5
+    sweetness:
+    - 1.5
+    - 3.0
+  suggested_wine_types:
+  - 1
+  - 2
+  preferred_styles:
+  - Pinot Noir
+  - Gewürztraminer
+  - Cru Beaujolais
+  sommelier_notes: O molho plum/hoisin e a pele crocante brilhante exigem tintos com
+    alta acidez e frutas vermelhas brilhantes, ou brancos aromáticos off-dry.
+  source: Wine Enthusiast
+  curated_by: manual
+  confidence: high
+- id: kung_pao_chicken
+  display_name: Frango Kung Pao
+  cuisine: chinesa
+  aliases:
+  - kung pao
+  - frango xadrez picante
+  ingredients_primary:
+  - frango
+  - amendoim
+  - pimenta_seca
+  - pimentao
+  ingredients_secondary:
+  - shoyu
+  - vinagre
+  - gengibre
+  - alho
+  cooking_method: salteado
+  main_protein: ave
+  vivino_food_tags:
+  - Aves
+  - Comida picante
+  flavor_keywords_match:
+  - pêssego
+  - maçã
+  - pimenta
+  - mel
+  - citrino
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 3.5
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 2.0
+    - 3.5
+  suggested_wine_types:
+  - 2
+  preferred_styles:
+  - Riesling (off-dry)
+  - Gewürztraminer
+  - Chenin Blanc
+  sommelier_notes: Prato da culinária Sichuanense tem doce, azedo, salgado e muuuito
+    picante. Tintos vão brigar. Brancos com açúcar residual apagam o fogo e destacam
+    os sabores.
+  source: Decanter
+  curated_by: manual
+  confidence: high
+- id: pad_thai
+  display_name: Pad Thai
+  cuisine: tailandesa
+  aliases:
+  - macarrão de arroz tailandês
+  - pad thai de camarão
+  ingredients_primary:
+  - macarrao_arroz
+  - camarao
+  - ovo
+  - amendoim
+  - broto_feijao
+  ingredients_secondary:
+  - molho_tamarindo
+  - molho_peixe
+  - limao
+  - pimenta
+  cooking_method: salteado
+  main_protein: frutos_do_mar
+  vivino_food_tags:
+  - Marisco
+  - Comida picante
+  flavor_keywords_match:
+  - limão
+  - pêssego
+  - maçã
+  - mel
+  - flores
+  target_structure:
+    body:
+    - 1.5
+    - 3.0
+    acidity:
+    - 4.0
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.5
+    - 3.0
+  suggested_wine_types:
+  - 2
+  - 4
+  preferred_styles:
+  - Riesling
+  - Rosé
+  - Grüner Veltliner
+  sommelier_notes: Sinfonia de doce, salgado, azedo e picante. Riesling é o rei indiscutível,
+    acompanhando os aromas e a doçura do tamarindo e amendoim.
+  source: Wine Spectator
+  curated_by: manual
+  confidence: high
+- id: tikka_masala
+  display_name: Frango Tikka Masala
+  cuisine: indiana
+  aliases:
+  - chicken tikka masala
+  - frango curry indiano
+  ingredients_primary:
+  - frango
+  - iogurte
+  - molho_tomate
+  - garam_masala
+  ingredients_secondary:
+  - cebola
+  - alho
+  - gengibre
+  - creme_de_leite
+  cooking_method: cozido
+  main_protein: ave
+  vivino_food_tags:
+  - Aves
+  - Comida picante
+  flavor_keywords_match:
+  - pêssego
+  - rosas
+  - especiarias
+  - pimenta
+  - cereja
+  target_structure:
+    body:
+    - 2.5
+    - 4.0
+    acidity:
+    - 3.0
+    - 4.5
+    tannin:
+    - 1.0
+    - 2.0
+    sweetness:
+    - 1.5
+    - 3.0
+  suggested_wine_types:
+  - 2
+  - 1
+  preferred_styles:
+  - Gewürztraminer
+  - Syrah
+  - Zinfandel
+  sommelier_notes: Molho de tomate rico, muito temperado e cremoso. Gewürztraminer
+    casa perfeitamente com gengibre e especiarias. Se preferir tinto, um Syrah muito
+    frutado sem taninos duros.
+  source: Wine Spectator
+  curated_by: manual
+  confidence: high
+- id: hamburguer
+  display_name: Hambúrguer
+  cuisine: internacional
+  aliases:
+  - cheeseburger
+  - burger
+  - hamburguer artesanal
+  ingredients_primary:
+  - carne_moida
+  - pao_brioche
+  - queijo_cheddar
+  - bacon
+  ingredients_secondary:
+  - alface
+  - tomate
+  - maionese
+  - ketchup
+  cooking_method: grelhado
+  main_protein: carne_vermelha
+  vivino_food_tags:
+  - Qualquer junk food serve
+  - Carne de vaca
+  flavor_keywords_match:
+  - carvalho
+  - amora
+  - fumaça
+  - pimenta
+  - baunilha
+  target_structure:
+    body:
+    - 3.0
+    - 4.5
+    acidity:
+    - 3.0
+    - 4.0
+    tannin:
+    - 2.5
+    - 4.0
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Cabernet Sauvignon
+  - Zinfandel
+  - Syrah
+  sommelier_notes: Carne gorda, pão doce, condimentos e bacon pedem vinhos americanos
+    expansivos, ou tintos do novo mundo com boa carga frutada para abraçar o ketchup/BBQ.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: ceviche
+  display_name: Ceviche
+  cuisine: internacional
+  aliases:
+  - ceviche peruano
+  - peixe cru com limão
+  ingredients_primary:
+  - peixe_branco
+  - limao
+  - cebola_roxa
+  - pimenta
+  ingredients_secondary:
+  - coentro
+  - batata_doce
+  - milho
+  cooking_method: cru
+  main_protein: peixe
+  vivino_food_tags:
+  - Peixes magros
+  - Aperitivos e lanches
+  flavor_keywords_match:
+  - limão
+  - grama
+  - minerais
+  - citrino
+  - maçã verde
+  target_structure:
+    body:
+    - 1.0
+    - 2.5
+    acidity:
+    - 4.5
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.0
+    sweetness:
+    - 1.0
+    - 1.5
+  suggested_wine_types:
+  - 2
+  preferred_styles:
+  - Sauvignon Blanc
+  - Albariño
+  - Torrontés
+  sommelier_notes: A acidez extrema do limão mata qualquer vinho que não tenha acidez
+    igual ou superior. Sauvignon Blanc (especialmente chileno) é a melhor resposta.
+  source: Guia Descorchados
+  curated_by: manual
+  confidence: high
+- id: moqueca_banana
+  display_name: Moqueca de Banana da Terra
+  cuisine: brasileira
+  aliases:
+  - moqueca vegana
+  - moqueca de banana
+  ingredients_primary:
+  - banana_da_terra
+  - leite_de_coco
+  - dende
+  - tomate
+  ingredients_secondary:
+  - cebola
+  - pimentao
+  - coentro
+  - azeite
+  cooking_method: cozido
+  main_protein: 'null'
+  vivino_food_tags:
+  - Vegetariano
+  flavor_keywords_match:
+  - tropical
+  - citrino
+  - abacaxi
+  - manteiga
+  - pêssego
+  target_structure:
+    body:
+    - 2.5
+    - 4.0
+    acidity:
+    - 3.0
+    - 4.5
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.5
+    - 3.0
+  suggested_wine_types:
+  - 2
+  - 4
+  preferred_styles:
+  - Viognier
+  - Chenin Blanc
+  - Rosé encorpado
+  sommelier_notes: A doçura natural da banana com o dendê pede vinhos aromáticos e
+    com leve doçura residual (off-dry) ou acidez vibrante para contrastar.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: vaca_atolada
+  display_name: Vaca Atolada
+  cuisine: brasileira
+  aliases:
+  - costela com mandioca
+  ingredients_primary:
+  - costela_bovina
+  - mandioca
+  ingredients_secondary:
+  - cebola
+  - alho
+  - salsa
+  - pimenta
+  cooking_method: cozido
+  main_protein: carne_vermelha
+  vivino_food_tags:
+  - Carne de vaca
+  flavor_keywords_match:
+  - carvalho
+  - ameixa
+  - amora
+  - pimenta
+  - terra
+  target_structure:
+    body:
+    - 3.5
+    - 5.0
+    acidity:
+    - 3.0
+    - 4.0
+    tannin:
+    - 3.0
+    - 4.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Cabernet Sauvignon
+  - Tannat
+  - Syrah
+  sommelier_notes: Prato rústico e muito gorduroso. Pede vinhos tintos potentes, estruturados,
+    com bons taninos para limpar o caldo rico e a mandioca que derrete.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: empadao_frango
+  display_name: Empadão de Frango
+  cuisine: brasileira
+  aliases:
+  - torta de frango
+  - empadão
+  ingredients_primary:
+  - frango_desfiado
+  - massa_podre
+  - requeijao
+  - azeitona
+  ingredients_secondary:
+  - milho
+  - ervilha
+  - cebola
+  - alho
+  cooking_method: assado
+  main_protein: ave
+  vivino_food_tags:
+  - Aves
+  - Aperitivos e lanches
+  flavor_keywords_match:
+  - manteiga
+  - pêssego
+  - maçã
+  - torrada
+  - brioche
+  target_structure:
+    body:
+    - 2.5
+    - 4.0
+    acidity:
+    - 3.0
+    - 4.5
+    tannin:
+    - 1.0
+    - 2.0
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 2
+  - 1
+  preferred_styles:
+  - Chardonnay (oaked)
+  - Pinot Noir
+  - Merlot leve
+  sommelier_notes: A massa rica em gordura e o recheio cremoso pedem um branco com
+    estágio em madeira (Chardonnay) que harmoniza com notas amanteigadas.
+  source: Revista Adega
+  curated_by: manual
+  confidence: high
+- id: tapioca_queijo_coalho
+  display_name: Tapioca com Queijo Coalho
+  cuisine: brasileira
+  aliases:
+  - tapioca
+  ingredients_primary:
+  - goma_tapioca
+  - queijo_coalho
+  ingredients_secondary:
+  - manteiga
+  - oregano
+  cooking_method: grelhado
+  main_protein: 'null'
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Queijos suaves e moles
+  flavor_keywords_match:
+  - manteiga
+  - maçã
+  - pêssego
+  - limão
+  - torrada
+  target_structure:
+    body:
+    - 1.5
+    - 3.0
+    acidity:
+    - 3.5
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 3
+  - 2
+  preferred_styles:
+  - Espumante Brut
+  - Sauvignon Blanc
+  - Vinho Verde
+  sommelier_notes: Lanche leve, o sal do queijo coalho e a neutralidade da goma são
+    palco perfeito para vinhos brancos frescos e espumantes descompromissados.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: bruschetta
+  display_name: Bruschetta Tradicional
+  cuisine: italiana
+  aliases:
+  - bruschetta al pomodoro
+  - torrada com tomate
+  ingredients_primary:
+  - pao_italiano
+  - tomate
+  - azeite
+  - alho
+  ingredients_secondary:
+  - manjericao
+  - sal
+  cooking_method: assado
+  main_protein: 'null'
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Vegetariano
+  flavor_keywords_match:
+  - tomate
+  - grama
+  - cereja
+  - limão
+  - ervas verdes
+  target_structure:
+    body:
+    - 1.5
+    - 3.0
+    acidity:
+    - 4.0
+    - 5.0
+    tannin:
+    - 1.0
+    - 2.0
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 2
+  - 4
+  - 1
+  preferred_styles:
+  - Pinot Grigio
+  - Chianti leve
+  - Rosé italiano
+  sommelier_notes: O tomate cru, azeite e alho exigem altíssima acidez. Um branco
+    fresco italiano ou um Sangiovese muito jovem (sem madeira).
+  source: Decanter
+  curated_by: manual
+  confidence: high
+- id: polenta_ragu
+  display_name: Polenta com Ragu
+  cuisine: italiana
+  aliases:
+  - polenta cremosa com carne
+  - polenta ao molho
+  ingredients_primary:
+  - fuba
+  - carne_moida
+  - molho_tomate
+  - queijo_parmesao
+  ingredients_secondary:
+  - manteiga
+  - caldo_carne
+  - alho
+  - cebola
+  cooking_method: cozido
+  main_protein: carne_vermelha
+  vivino_food_tags:
+  - Carne de vaca
+  flavor_keywords_match:
+  - cereja
+  - ameixa
+  - terra
+  - carvalho
+  - baunilha
+  target_structure:
+    body:
+    - 3.0
+    - 4.5
+    acidity:
+    - 3.5
+    - 4.5
+    tannin:
+    - 2.5
+    - 4.0
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Barbera
+  - Sangiovese
+  - Merlot
+  sommelier_notes: Um prato rústico e reconfortante do norte da Itália. Casa lindamente
+    com a acidez vibrante e a fruta da uva Barbera.
+  source: Wine Spectator
+  curated_by: manual
+  confidence: high
+- id: carpaccio
+  display_name: Carpaccio Bovino
+  cuisine: italiana
+  aliases:
+  - carpaccio de carne
+  ingredients_primary:
+  - carne_crua_bovina
+  - azeite
+  - queijo_parmesao
+  - limao
+  ingredients_secondary:
+  - alcaparra
+  - mostarda
+  - pimenta_preta
+  cooking_method: cru
+  main_protein: carne_vermelha
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Carne de vaca
+  flavor_keywords_match:
+  - cereja
+  - limão
+  - pimenta
+  - minerais
+  - grama
+  target_structure:
+    body:
+    - 1.5
+    - 3.0
+    acidity:
+    - 3.5
+    - 5.0
+    tannin:
+    - 1.0
+    - 2.0
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 2
+  - 1
+  - 4
+  preferred_styles:
+  - Chablis
+  - Pinot Noir
+  - Rosé
+  sommelier_notes: A carne crua temperada com limão rejeita taninos pesados. A escolha
+    ideal é um branco mineral (Chablis) ou um tinto ultra-leve resfriado (Pinot Noir/Gamay).
+  source: What to Drink with What You Eat
+  curated_by: manual
+  confidence: high
+- id: ravioli_ricota
+  display_name: Ravioli de Ricota e Espinafre
+  cuisine: italiana
+  aliases:
+  - ravióli verde
+  - massa recheada
+  ingredients_primary:
+  - massa
+  - ricota
+  - espinafre
+  - manteiga
+  ingredients_secondary:
+  - salvia
+  - noz_moscada
+  - queijo_parmesao
+  cooking_method: cozido
+  main_protein: 'null'
+  vivino_food_tags:
+  - Massa
+  - Vegetariano
+  flavor_keywords_match:
+  - manteiga
+  - maçã
+  - erva
+  - limão
+  - pêssego
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 3.5
+    - 4.5
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 2
+  preferred_styles:
+  - Verdicchio
+  - Soave
+  - Sauvignon Blanc
+  sommelier_notes: A sálvia na manteiga e a ricota delicada pedem brancos italianos
+    com textura, mas que mantenham notas herbáceas frescas.
+  source: Wine Spectator
+  curated_by: manual
+  confidence: high
+- id: sopa_cebola
+  display_name: Sopa de Cebola Francesa
+  cuisine: francesa
+  aliases:
+  - soupe à l'oignon
+  - sopa de cebola gratinada
+  ingredients_primary:
+  - cebola
+  - caldo_carne
+  - queijo_gruyere
+  - pao_baguete
+  ingredients_secondary:
+  - manteiga
+  - vinho_branco
+  - tomilho
+  - conhaque
+  cooking_method: cozido
+  main_protein: 'null'
+  vivino_food_tags:
+  - Aperitivos e lanches
+  flavor_keywords_match:
+  - manteiga
+  - carvalho
+  - maçã
+  - brioche
+  - mel
+  target_structure:
+    body:
+    - 2.5
+    - 4.0
+    acidity:
+    - 3.0
+    - 4.5
+    tannin:
+    - 1.0
+    - 2.0
+    sweetness:
+    - 1.5
+    - 2.5
+  suggested_wine_types:
+  - 2
+  - 1
+  preferred_styles:
+  - Chardonnay (Burgundy)
+  - Cru Beaujolais
+  - Pinot Gris
+  sommelier_notes: A cebola caramelizada tem doçura, e o queijo derretido é rico.
+    Um branco encorpado e redondo (Meursault) ou tinto leve e frutado harmonizam perfeitamente.
+  source: Decanter
+  curated_by: manual
+  confidence: high
+- id: quiche_lorraine
+  display_name: Quiche Lorraine
+  cuisine: francesa
+  aliases:
+  - quiche de bacon
+  ingredients_primary:
+  - massa_podre
+  - ovos
+  - creme_de_leite
+  - bacon
+  ingredients_secondary:
+  - queijo_gruyere
+  - noz_moscada
+  - pimenta_preta
+  cooking_method: assado
+  main_protein: carne_porco
+  vivino_food_tags:
+  - Carne de porco
+  - Aperitivos e lanches
+  flavor_keywords_match:
+  - manteiga
+  - fumaça
+  - maçã
+  - pêssego
+  - torrada
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 3.5
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 2
+  preferred_styles:
+  - Riesling
+  - Pinot Gris
+  - Chardonnay
+  sommelier_notes: Clássico da Alsácia. O bacon defumado e a textura rica de ovos
+    pedem um Riesling da Alsácia ou Pinot Gris com acidez marcante e leveza.
+  source: What to Drink with What You Eat
+  curated_by: manual
+  confidence: high
+- id: magret_pato
+  display_name: Magret de Pato
+  cuisine: francesa
+  aliases:
+  - peito de pato
+  - magret de canard
+  ingredients_primary:
+  - peito_pato
+  - manteiga
+  ingredients_secondary:
+  - molho_frutas_vermelhas
+  - sal
+  - pimenta_preta
+  cooking_method: grelhado
+  main_protein: ave
+  vivino_food_tags:
+  - Aves
+  flavor_keywords_match:
+  - cereja
+  - terra
+  - cogumelo
+  - amora
+  - pimenta
+  target_structure:
+    body:
+    - 3.0
+    - 4.5
+    acidity:
+    - 3.5
+    - 4.5
+    tannin:
+    - 2.0
+    - 3.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Pinot Noir
+  - Syrah
+  - Bordeaux Blend
+  sommelier_notes: Carne vermelha nobre (embora ave) servida quase mal passada com
+    gordura farta na pele. Pinot Noir é maravilhoso, mas um Rhône (Syrah) lida bem
+    com a pimenta.
+  source: Wine Enthusiast
+  curated_by: manual
+  confidence: high
+- id: yakitori
+  display_name: Yakitori
+  cuisine: japonesa
+  aliases:
+  - espetinho de frango japonês
+  - yakitori de frango
+  ingredients_primary:
+  - frango
+  - molho_tare
+  - cebolinha
+  ingredients_secondary:
+  - carvao
+  cooking_method: grelhado
+  main_protein: ave
+  vivino_food_tags:
+  - Aves
+  - Aperitivos e lanches
+  flavor_keywords_match:
+  - fumaça
+  - cereja
+  - carvalho
+  - mel
+  - maçã
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 3.5
+    - 4.5
+    tannin:
+    - 1.5
+    - 2.5
+    sweetness:
+    - 1.5
+    - 3.0
+  suggested_wine_types:
+  - 1
+  - 2
+  preferred_styles:
+  - Pinot Noir
+  - Riesling
+  - Gamay
+  sommelier_notes: O defumado da brasa (binchotan) e a doçura salgada do molho tarê
+    pedem um tinto leve e frutado (Pinot) servido frio, ou um Riesling.
+  source: Decanter
+  curated_by: manual
+  confidence: high
+- id: teppanyaki
+  display_name: Teppanyaki de Carne
+  cuisine: japonesa
+  aliases:
+  - carne na chapa
+  - teppan de mignom
+  ingredients_primary:
+  - file_mignon
+  - shoyu
+  - legumes
+  - alho
+  ingredients_secondary:
+  - manteiga
+  - oleo_gergelim
+  cooking_method: grelhado
+  main_protein: carne_vermelha
+  vivino_food_tags:
+  - Carne de vaca
+  flavor_keywords_match:
+  - cereja
+  - carvalho
+  - amora
+  - pimenta
+  - terra
+  target_structure:
+    body:
+    - 3.0
+    - 4.5
+    acidity:
+    - 3.0
+    - 4.0
+    tannin:
+    - 2.0
+    - 3.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Merlot
+  - Cabernet Sauvignon
+  - Syrah
+  sommelier_notes: Carne grelhada na chapa com notas ricas de shoyu e manteiga. Aceita
+    perfeitamente tintos estruturados do Novo Mundo.
+  source: Consenso sommelier
+  curated_by: manual
+  confidence: high
+- id: choripan
+  display_name: Choripán
+  cuisine: argentina
+  aliases:
+  - pão com linguiça argentino
+  - choripan com chimichurri
+  ingredients_primary:
+  - pao_frances
+  - linguica_chouriço
+  - chimichurri
+  ingredients_secondary:
+  - azeite
+  - vinagre
+  - oregano
+  cooking_method: grelhado
+  main_protein: carne_porco
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Carne de porco
+  flavor_keywords_match:
+  - pimenta
+  - fumaça
+  - ameixa
+  - erva
+  - carvalho
+  target_structure:
+    body:
+    - 3.0
+    - 4.5
+    acidity:
+    - 3.5
+    - 4.5
+    tannin:
+    - 2.0
+    - 3.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Malbec
+  - Cabernet Franc
+  - Syrah
+  sommelier_notes: Street food por excelência. A gordura da linguiça e a acidez das
+    ervas do chimichurri gritam por um Malbec jovem ou Cabernet Franc da Argentina.
+  source: Guia Descorchados
+  curated_by: manual
+  confidence: high
+- id: tortilla_patatas
+  display_name: Tortilla de Patatas
+  cuisine: espanhola
+  aliases:
+  - omelete espanhola
+  - tortilla de batata
+  ingredients_primary:
+  - ovo
+  - batata
+  - azeite
+  - cebola
+  ingredients_secondary:
+  - sal
+  cooking_method: frito
+  main_protein: 'null'
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Vegetariano
+  flavor_keywords_match:
+  - maçã
+  - limão
+  - pêssego
+  - manteiga
+  - minerais
+  target_structure:
+    body:
+    - 1.5
+    - 3.0
+    acidity:
+    - 3.5
+    - 4.5
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 1.5
+  suggested_wine_types:
+  - 2
+  - 3
+  preferred_styles:
+  - Cava
+  - Albariño
+  - Verdejo
+  sommelier_notes: Omelete altíssima, rica em azeite doce da fritura das batatas.
+    Pede a crocância de um espumante Cava ou um branco espanhol leve.
+  source: Wine Spectator
+  curated_by: manual
+  confidence: high
+- id: gazpacho
+  display_name: Gazpacho
+  cuisine: espanhola
+  aliases:
+  - sopa fria de tomate
+  - gaspacho
+  ingredients_primary:
+  - tomate
+  - pepino
+  - pimentao
+  - azeite
+  ingredients_secondary:
+  - vinagre
+  - alho
+  - pao
+  cooking_method: cru
+  main_protein: 'null'
+  vivino_food_tags:
+  - Vegetariano
+  flavor_keywords_match:
+  - tomate
+  - limão
+  - grama
+  - erva
+  - maçã verde
+  target_structure:
+    body:
+    - 1.0
+    - 2.5
+    acidity:
+    - 4.0
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.0
+    sweetness:
+    - 1.0
+    - 1.5
+  suggested_wine_types:
+  - 2
+  - 4
+  preferred_styles:
+  - Sauvignon Blanc
+  - Albariño
+  - Rosé seco
+  sommelier_notes: Um assassino de vinhos por causa do vinagre cru. A única defesa
+    é um branco hiperácido e vegetal (Sauvignon Blanc) bem gelado, ou um Jerez Fino.
+  source: What to Drink with What You Eat
+  curated_by: manual
+  confidence: high
+- id: dim_sum
+  display_name: Dim Sum (Har Gow & Siu Mai)
+  cuisine: chinesa
+  aliases:
+  - guioza no vapor
+  - dumplings de camarão
+  ingredients_primary:
+  - camarao
+  - carne_porco
+  - massa_arroz
+  - oleo_gergelim
+  ingredients_secondary:
+  - shoyu
+  - gengibre
+  - cebolinha
+  cooking_method: vapor
+  main_protein: frutos_do_mar
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Marisco
+  flavor_keywords_match:
+  - limão
+  - minerais
+  - pera
+  - maçã verde
+  - brioche
+  target_structure:
+    body:
+    - 1.0
+    - 2.5
+    acidity:
+    - 4.0
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 3
+  - 2
+  preferred_styles:
+  - Champagne
+  - Riesling seco
+  - Pinot Gris
+  sommelier_notes: Comida delicada no vapor, recheios sutis de camarão e porco. Espumantes
+    ou brancos muito puros e minerais são a escolha ideal.
+  source: Decanter
+  curated_by: manual
+  confidence: high
+- id: porco_agridoce
+  display_name: Porco Agridoce
+  cuisine: chinesa
+  aliases:
+  - sweet and sour pork
+  - lombo agridoce
+  ingredients_primary:
+  - carne_porco
+  - abacaxi
+  - pimentao
+  - vinagre
+  - acucar
+  ingredients_secondary:
+  - molho_tomate
+  - alho
+  - shoyu
+  - massa_tempura
+  cooking_method: frito
+  main_protein: carne_porco
+  vivino_food_tags:
+  - Carne de porco
+  flavor_keywords_match:
+  - abacaxi
+  - pêssego
+  - mel
+  - citrino
+  - maçã
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 4.0
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 2.5
+    - 4.5
+  suggested_wine_types:
+  - 2
+  - 4
+  preferred_styles:
+  - Riesling (off-dry)
+  - Chenin Blanc
+  - Moscato
+  sommelier_notes: 'Desafio clássico: fritura crocante coberta com molho muito doce
+    e ácido. O vinho precisa imitar a estrutura (doçura residual + alta acidez).'
+  source: What to Drink with What You Eat
+  curated_by: manual
+  confidence: high
+- id: green_curry
+  display_name: Thai Green Curry
+  cuisine: tailandesa
+  aliases:
+  - curry verde
+  - caril verde tailandês
+  ingredients_primary:
+  - frango
+  - leite_de_coco
+  - pasta_curry_verde
+  - manjericao_tailandes
+  ingredients_secondary:
+  - folha_limao_kaffir
+  - capim_limao
+  - pimenta_verde
+  - brotos
+  cooking_method: cozido
+  main_protein: ave
+  vivino_food_tags:
+  - Aves
+  - Comida picante
+  flavor_keywords_match:
+  - limão
+  - erva
+  - pêssego
+  - tropical
+  - pimenta
+  target_structure:
+    body:
+    - 2.5
+    - 4.0
+    acidity:
+    - 3.5
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 2.0
+    - 3.5
+  suggested_wine_types:
+  - 2
+  preferred_styles:
+  - Gewürztraminer
+  - Riesling (off-dry)
+  - Sauvignon Blanc
+  sommelier_notes: Aromas explodindo (capim limão, coentro), picância alta e cremosidade
+    do coco. Gewürztraminer é a alma gêmea deste prato.
+  source: Wine Enthusiast
+  curated_by: manual
+  confidence: high
+- id: tom_yum
+  display_name: Sopa Tom Yum
+  cuisine: tailandesa
+  aliases:
+  - tom yum goong
+  - sopa de camarão azeda picante
+  ingredients_primary:
+  - camarao
+  - cogumelo
+  - capim_limao
+  - galanga
+  ingredients_secondary:
+  - folha_limao_kaffir
+  - pimenta
+  - molho_peixe
+  - limao
+  cooking_method: cozido
+  main_protein: frutos_do_mar
+  vivino_food_tags:
+  - Marisco
+  - Comida picante
+  flavor_keywords_match:
+  - limão
+  - citrino
+  - maçã verde
+  - minerais
+  - pimenta
+  target_structure:
+    body:
+    - 1.5
+    - 3.0
+    acidity:
+    - 4.5
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.0
+    sweetness:
+    - 1.5
+    - 3.0
+  suggested_wine_types:
+  - 2
+  preferred_styles:
+  - Riesling
+  - Chenin Blanc
+  - Grüner Veltliner
+  sommelier_notes: Sopa clara extremamente azeda, aromática e picante. Evite vinhos
+    alcoólicos. Riesling com alguma doçura é obrigatório.
+  source: Decanter
+  curated_by: manual
+  confidence: high
+- id: butter_chicken
+  display_name: Butter Chicken
+  cuisine: indiana
+  aliases:
+  - murgh makhani
+  - frango na manteiga indiano
+  ingredients_primary:
+  - frango
+  - molho_tomate
+  - manteiga
+  - creme_de_leite
+  ingredients_secondary:
+  - garam_masala
+  - alho
+  - gengibre
+  - castanha_caju
+  cooking_method: cozido
+  main_protein: ave
+  vivino_food_tags:
+  - Aves
+  - Comida picante
+  flavor_keywords_match:
+  - manteiga
+  - pêssego
+  - creme
+  - cereja
+  - especiarias
+  target_structure:
+    body:
+    - 3.0
+    - 4.5
+    acidity:
+    - 3.0
+    - 4.0
+    tannin:
+    - 1.0
+    - 2.0
+    sweetness:
+    - 1.5
+    - 3.0
+  suggested_wine_types:
+  - 2
+  - 4
+  preferred_styles:
+  - Viognier
+  - Chardonnay (oaked)
+  - Rosé Tavel
+  sommelier_notes: Menos picante e muito mais rico/amanteigado que o Tikka Masala.
+    Brancos texturizados como Viognier harmonizam a gordura e os aromas.
+  source: Wine Spectator
+  curated_by: manual
+  confidence: high
+- id: samosa
+  display_name: Samosa
+  cuisine: indiana
+  aliases:
+  - pastel indiano
+  - samosa de legumes
+  ingredients_primary:
+  - batata
+  - ervilha
+  - massa_fina
+  ingredients_secondary:
+  - cominho
+  - semente_coentro
+  - pimenta
+  cooking_method: frito
+  main_protein: 'null'
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Vegetariano
+  - Comida picante
+  flavor_keywords_match:
+  - maçã
+  - limão
+  - pêssego
+  - especiarias
+  - pimenta
+  target_structure:
+    body:
+    - 1.5
+    - 3.0
+    acidity:
+    - 4.0
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.5
+    - 2.5
+  suggested_wine_types:
+  - 3
+  - 2
+  preferred_styles:
+  - Cava
+  - Prosecco
+  - Riesling
+  sommelier_notes: Fritura crocante com interior amiláceo e temperado. Cava gelado
+    ou um Riesling jovem lidam com a gordura e destacam o curry.
+  source: Consenso sommelier
+  curated_by: manual
+  confidence: high
+- id: francesinha
+  display_name: Francesinha
+  cuisine: portuguesa
+  aliases:
+  - sanduíche do porto
+  - francesinha à moda do porto
+  ingredients_primary:
+  - pao_forma
+  - bife
+  - linguica
+  - salsicha
+  - queijo
+  ingredients_secondary:
+  - molho_cerveja_tomate
+  - pimenta_piri_piri
+  - batata_frita
+  cooking_method: assado
+  main_protein: carne_vermelha
+  vivino_food_tags:
+  - Carne de vaca
+  - Carne curada
+  flavor_keywords_match:
+  - carvalho
+  - amora
+  - pimenta
+  - fumaça
+  - ameixa
+  target_structure:
+    body:
+    - 3.5
+    - 5.0
+    acidity:
+    - 3.5
+    - 4.5
+    tannin:
+    - 2.5
+    - 4.0
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Touriga Nacional
+  - Douro Tinto
+  - Baga
+  sommelier_notes: Bomba calórica com várias carnes, muito queijo e molho picante.
+    Exige um tinto português potente do Douro ou Dão com taninos pra limpar tudo isso.
+  source: Revista de Vinhos (PT)
+  curated_by: manual
+  confidence: high
+- id: arroz_pato
+  display_name: Arroz de Pato
+  cuisine: portuguesa
+  aliases:
+  - arroz com pato desfiado
+  - arroz de pato à portuguesa
+  ingredients_primary:
+  - pato
+  - arroz
+  - chourico
+  ingredients_secondary:
+  - cebola
+  - alho
+  - caldo_pato
+  - vinho_branco
+  cooking_method: assado
+  main_protein: ave
+  vivino_food_tags:
+  - Aves
+  - Carne curada
+  flavor_keywords_match:
+  - cereja
+  - carvalho
+  - fumaça
+  - terra
+  - cogumelo
+  target_structure:
+    body:
+    - 3.0
+    - 4.5
+    acidity:
+    - 3.5
+    - 4.5
+    tannin:
+    - 2.0
+    - 3.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Pinot Noir
+  - Alentejo Tinto
+  - Touriga Franca
+  sommelier_notes: Clássico onde a gordura do pato é absorvida pelo arroz e coroada
+    com chouriço. Tintos do Alentejo ou um Pinot Noir casam esplendidamente.
+  source: Guia de Vinhos de Portugal
+  curated_by: manual
+  confidence: high
+- id: caldo_verde
+  display_name: Caldo Verde
+  cuisine: portuguesa
+  aliases:
+  - sopa de couve com chouriço
+  - caldo português
+  ingredients_primary:
+  - batata
+  - couve_galega
+  - chourico
+  - azeite
+  ingredients_secondary:
+  - alho
+  - cebola
+  - agua
+  cooking_method: cozido
+  main_protein: 'null'
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Carne curada
+  flavor_keywords_match:
+  - limão
+  - grama
+  - fumaça
+  - minerais
+  - erva
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 3.5
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 1.5
+  suggested_wine_types:
+  - 2
+  preferred_styles:
+  - Vinho Verde
+  - Alvarinho
+  - Loureiro
+  sommelier_notes: Sopa reconfortante mas leve, dominada por batata, azeite e o toque
+    do chouriço. Vinho Verde branco é a companhia clássica inseparável.
+  source: Consenso sommelier
+  curated_by: manual
+  confidence: high
+- id: pudim_leite
+  display_name: Pudim de Leite
+  cuisine: brasileira
+  aliases:
+  - pudim de leite condensado
+  - pudim de caramelo
+  - flan
+  ingredients_primary:
+  - leite_condensado
+  - leite
+  - ovos
+  - acucar
+  ingredients_secondary:
+  - baunilha
+  cooking_method: assado
+  main_protein: 'null'
+  vivino_food_tags:
+  - Sobremesa
+  flavor_keywords_match:
+  - caramelo
+  - baunilha
+  - mel
+  - pêssego
+  - creme
+  target_structure:
+    body:
+    - 3.0
+    - 5.0
+    acidity:
+    - 2.5
+    - 4.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 3.5
+    - 5.0
+  suggested_wine_types:
+  - 7
+  - 24
+  preferred_styles:
+  - Late Harvest
+  - Sauternes
+  - Moscatel
+  sommelier_notes: Sobremesa muito doce e cremosa com calda de caramelo queimado.
+    Pede brancos de colheita tardia com notas meladas ou um Moscatel para igualar
+    a doçura.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: brigadeiro
+  display_name: Brigadeiro
+  cuisine: brasileira
+  aliases:
+  - doce de chocolate
+  - brigadeirão
+  - trufa de chocolate
+  ingredients_primary:
+  - leite_condensado
+  - chocolate_po
+  - manteiga
+  ingredients_secondary:
+  - granulado
+  cooking_method: cozido
+  main_protein: 'null'
+  vivino_food_tags:
+  - Sobremesa
+  flavor_keywords_match:
+  - chocolate
+  - caramelo
+  - cacau
+  - baunilha
+  - café
+  target_structure:
+    body:
+    - 3.5
+    - 5.0
+    acidity:
+    - 2.0
+    - 3.5
+    tannin:
+    - 1.5
+    - 3.0
+    sweetness:
+    - 4.0
+    - 5.0
+  suggested_wine_types:
+  - 24
+  - 7
+  preferred_styles:
+  - Porto Ruby
+  - Banyuls
+  - Pedro Ximénez
+  sommelier_notes: O chocolate denso e o leite condensado matam qualquer vinho seco.
+    A melhor companhia é um Porto Ruby frutado ou um fortificado à base de Grenache.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: torta_limao
+  display_name: Torta de Limão
+  cuisine: internacional
+  aliases:
+  - lemon pie
+  - torta de limão com merengue
+  - tarte au citron
+  ingredients_primary:
+  - limao
+  - leite_condensado
+  - massa_biscoito
+  - merengue
+  ingredients_secondary:
+  - manteiga
+  cooking_method: assado
+  main_protein: 'null'
+  vivino_food_tags:
+  - Sobremesa
+  flavor_keywords_match:
+  - limão
+  - citrino
+  - baunilha
+  - maçã
+  - mel
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 4.0
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.0
+    sweetness:
+    - 2.5
+    - 4.0
+  suggested_wine_types:
+  - 2
+  - 7
+  - 3
+  preferred_styles:
+  - Riesling (Spätlese)
+  - Sauternes
+  - Moscato d'Asti
+  sommelier_notes: A acidez cortante do limão unida ao açúcar do merengue exige um
+    vinho com alta acidez e doçura pronunciada. Riesling Spätlese é divinal aqui.
+  source: What to Drink with What You Eat
+  curated_by: manual
+  confidence: high
+- id: cheesecake_frutas_vermelhas
+  display_name: Cheesecake de Frutas Vermelhas
+  cuisine: internacional
+  aliases:
+  - cheesecake
+  - torta de queijo com geleia
+  ingredients_primary:
+  - cream_cheese
+  - massa_biscoito
+  - geleia_frutas_vermelhas
+  ingredients_secondary:
+  - manteiga
+  - acucar
+  - baunilha
+  cooking_method: assado
+  main_protein: 'null'
+  vivino_food_tags:
+  - Sobremesa
+  - Sobremesas com frutas
+  flavor_keywords_match:
+  - cereja
+  - amora
+  - baunilha
+  - morango
+  - framboesa preta
+  target_structure:
+    body:
+    - 2.5
+    - 4.0
+    acidity:
+    - 3.5
+    - 4.5
+    tannin:
+    - 1.0
+    - 2.0
+    sweetness:
+    - 2.5
+    - 4.0
+  suggested_wine_types:
+  - 4
+  - 7
+  - 3
+  preferred_styles:
+  - Brachetto d'Acqui
+  - Porto Tawny
+  - Rosé Demi-Sec
+  sommelier_notes: A cremosidade do queijo com a acidez das frutas vermelhas pede
+    um espumante doce rosado (Brachetto) ou um vinho de sobremesa não muito pesado.
+  source: Wine Enthusiast
+  curated_by: manual
+  confidence: high
+- id: creme_brulee
+  display_name: Crème Brûlée
+  cuisine: francesa
+  aliases:
+  - creme brulee
+  - creme queimado
+  - crema catalana
+  ingredients_primary:
+  - gema_ovo
+  - creme_de_leite
+  - baunilha
+  - acucar
+  ingredients_secondary:
+  - acucar_queimado
+  cooking_method: assado
+  main_protein: 'null'
+  vivino_food_tags:
+  - Sobremesa
+  flavor_keywords_match:
+  - baunilha
+  - caramelo
+  - mel
+  - manteiga
+  - creme
+  target_structure:
+    body:
+    - 3.0
+    - 4.5
+    acidity:
+    - 3.0
+    - 4.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 3.0
+    - 4.5
+  suggested_wine_types:
+  - 7
+  preferred_styles:
+  - Sauternes
+  - Late Harvest
+  - Monbazillac
+  sommelier_notes: A crosta de caramelo queimado e o rico creme de baunilha formam
+    a tela perfeita para os vinhos de sobremesa botritizados franceses (Sauternes).
+  source: Wine Spectator
+  curated_by: manual
+  confidence: high
+- id: petit_gateau
+  display_name: Petit Gâteau
+  cuisine: francesa
+  aliases:
+  - petit gateau
+  - bolo de chocolate com sorvete
+  ingredients_primary:
+  - chocolate_meio_amargo
+  - manteiga
+  - ovos
+  - sorvete_baunilha
+  ingredients_secondary:
+  - farinha
+  - acucar
+  cooking_method: assado
+  main_protein: 'null'
+  vivino_food_tags:
+  - Sobremesa
+  flavor_keywords_match:
+  - chocolate
+  - cacau
+  - baunilha
+  - cereja preta
+  - carvalho
+  target_structure:
+    body:
+    - 3.5
+    - 5.0
+    acidity:
+    - 2.5
+    - 4.0
+    tannin:
+    - 1.5
+    - 3.0
+    sweetness:
+    - 3.0
+    - 4.5
+  suggested_wine_types:
+  - 24
+  - 7
+  preferred_styles:
+  - Banyuls
+  - Porto LBV
+  - Marsala
+  sommelier_notes: O contraste quente/frio e amargo/doce do chocolate com sorvete
+    é desafiador. Banyuls do sul da França ou um Porto LBV são excelentes para o cacau.
+  source: Decanter
+  curated_by: manual
+  confidence: high
+- id: romeu_julieta
+  display_name: Romeu e Julieta
+  cuisine: brasileira
+  aliases:
+  - goiabada com queijo
+  - queijo minas com goiabada
+  ingredients_primary:
+  - goiabada
+  - queijo_minas
+  ingredients_secondary:
+  - 'null'
+  cooking_method: 'null'
+  main_protein: 'null'
+  vivino_food_tags:
+  - Sobremesas com frutas
+  - Queijos suaves e moles
+  flavor_keywords_match:
+  - tropical
+  - pêssego
+  - mel
+  - damasco
+  - maçã
+  target_structure:
+    body:
+    - 2.5
+    - 4.0
+    acidity:
+    - 3.0
+    - 4.5
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 3.0
+    - 4.5
+  suggested_wine_types:
+  - 7
+  - 2
+  - 3
+  preferred_styles:
+  - Late Harvest
+  - Moscato d'Asti
+  - Gewürztraminer
+  sommelier_notes: A acidez do queijo branco cortando a doçura densa da goiabada.
+    Pede vinhos de sobremesa leves, como Colheita Tardia ou um espumante Moscatel.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: churros
+  display_name: Churros com Doce de Leite
+  cuisine: espanhola
+  aliases:
+  - churros
+  - massa frita doce
+  ingredients_primary:
+  - massa_churros
+  - doce_de_leite
+  - acucar
+  - canela
+  ingredients_secondary:
+  - oleo_fritura
+  cooking_method: frito
+  main_protein: 'null'
+  vivino_food_tags:
+  - Sobremesa
+  flavor_keywords_match:
+  - caramelo
+  - baunilha
+  - canela
+  - especiarias
+  - mel
+  target_structure:
+    body:
+    - 3.0
+    - 4.5
+    acidity:
+    - 3.0
+    - 4.0
+    tannin:
+    - 1.0
+    - 2.0
+    sweetness:
+    - 3.5
+    - 5.0
+  suggested_wine_types:
+  - 24
+  - 7
+  preferred_styles:
+  - Pedro Ximénez
+  - Porto Tawny
+  - Madeira Malvasia
+  sommelier_notes: Fritura, canela e caramelo denso. O Jerez Pedro Ximénez é a perfeição
+    aqui, assim como um Porto Tawny 10 ou 20 anos que ecoa a canela e o doce de leite.
+  source: Wine Spectator
+  curated_by: manual
+  confidence: high
+- id: morangos_creme
+  display_name: Morangos com Creme
+  cuisine: internacional
+  aliases:
+  - morango com chantilly
+  - morangos frescos com creme
+  ingredients_primary:
+  - morango
+  - creme_de_leite_fresco
+  - acucar
+  ingredients_secondary:
+  - baunilha
+  cooking_method: 'null'
+  main_protein: 'null'
+  vivino_food_tags:
+  - Sobremesas com frutas
+  flavor_keywords_match:
+  - morango
+  - cereja
+  - creme
+  - framboesa
+  - baunilha
+  target_structure:
+    body:
+    - 1.5
+    - 3.0
+    acidity:
+    - 3.5
+    - 4.5
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 2.0
+    - 4.0
+  suggested_wine_types:
+  - 3
+  - 4
+  preferred_styles:
+  - Champagne Rosé
+  - Moscato d'Asti
+  - Brachetto d'Acqui
+  sommelier_notes: O clássico do torneio de Wimbledon. Champagne Rosé Demi-Sec é fenomenal.
+    Moscato d'Asti realça as frutas sem pesar.
+  source: What to Drink with What You Eat
+  curated_by: manual
+  confidence: high
+- id: salada_frutas
+  display_name: Salada de Frutas Frescas
+  cuisine: internacional
+  aliases:
+  - mix de frutas
+  - frutas da estação
+  - salada de frutas
+  ingredients_primary:
+  - maca
+  - banana
+  - mamao
+  - laranja
+  - uva
+  ingredients_secondary:
+  - suco_laranja
+  - hortela
+  cooking_method: 'null'
+  main_protein: 'null'
+  vivino_food_tags:
+  - Sobremesas com frutas
+  - Vegetariano
+  flavor_keywords_match:
+  - maçã
+  - pêssego
+  - tropical
+  - citrino
+  - pera
+  target_structure:
+    body:
+    - 1.0
+    - 2.5
+    acidity:
+    - 3.5
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.0
+    sweetness:
+    - 2.0
+    - 3.5
+  suggested_wine_types:
+  - 3
+  - 2
+  preferred_styles:
+  - Moscato d'Asti
+  - Prosecco Extra Dry
+  - Gewürztraminer leve
+  sommelier_notes: Uma salada fresca não pode ser afogada por vinhos pesados. Moscato
+    d'Asti italiano tem a leveza, o frisante e o perfume de pêssego ideais.
+  source: Decanter
+  curated_by: manual
+  confidence: high
+- id: frutas_secas_castanhas
+  display_name: Frutas Secas e Castanhas
+  cuisine: internacional
+  aliases:
+  - mix de nozes e frutas secas
+  - damasco seco com nozes
+  ingredients_primary:
+  - damasco_seco
+  - uva_passa
+  - amendoa
+  - noz
+  ingredients_secondary:
+  - amendoim
+  - castanha_caju
+  cooking_method: 'null'
+  main_protein: 'null'
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Sobremesas com frutas
+  flavor_keywords_match:
+  - amêndoa
+  - mel
+  - damasco
+  - caramelo
+  - baunilha
+  target_structure:
+    body:
+    - 3.0
+    - 4.5
+    acidity:
+    - 3.0
+    - 4.5
+    tannin:
+    - 1.0
+    - 2.0
+    sweetness:
+    - 2.0
+    - 4.0
+  suggested_wine_types:
+  - 24
+  - 2
+  preferred_styles:
+  - Porto Tawny
+  - Amontillado Sherry
+  - Madeira
+  sommelier_notes: O perfil oxidativo de nozes e frutas passificadas exige vinhos
+    fortificados envelhecidos em madeira. Tawny ou Jerez Amontillado são os melhores
+    amigos.
+  source: What to Drink with What You Eat
+  curated_by: manual
+  confidence: high
+- id: tabua_frios
+  display_name: Tábua de Frios (Charcutaria)
+  cuisine: internacional
+  aliases:
+  - tábua de queijos e embutidos
+  - charcutaria
+  - antipasto
+  ingredients_primary:
+  - salame
+  - presunto_cru
+  - queijo_gruyere
+  - brie
+  ingredients_secondary:
+  - azeitona
+  - pao
+  - geleia
+  cooking_method: cru
+  main_protein: carne_porco
+  vivino_food_tags:
+  - Carne curada
+  - Queijos maduros
+  - Aperitivos e lanches
+  flavor_keywords_match:
+  - maçã
+  - cereja
+  - terra
+  - pimenta
+  - fumaça
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 3.5
+    - 4.5
+    tannin:
+    - 1.5
+    - 3.0
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  - 2
+  - 4
+  preferred_styles:
+  - Pinot Noir
+  - Sangiovese jovem
+  - Dry Rosé
+  sommelier_notes: Muitos sabores misturados. Vinhos de corpo leve/médio, acidez alta
+    e poucos taninos (como Pinot Noir, Gamay ou um bom Rosé) limpam a gordura e se
+    dão bem com todos os itens.
+  source: Wine Spectator
+  curated_by: manual
+  confidence: high
+- id: bolinho_bacalhau
+  display_name: Bolinho de Bacalhau
+  cuisine: portuguesa
+  aliases:
+  - pastel de bacalhau
+  - croquete de bacalhau
+  ingredients_primary:
+  - bacalhau
+  - batata
+  - ovo
+  - salsa
+  ingredients_secondary:
+  - azeite
+  - cebola
+  - oleo_fritura
+  cooking_method: frito
+  main_protein: peixe
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Peixe (salmão, atum etc.)
+  flavor_keywords_match:
+  - limão
+  - citrino
+  - minerais
+  - grama
+  - maçã verde
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 4.0
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 1.5
+  suggested_wine_types:
+  - 2
+  - 3
+  preferred_styles:
+  - Vinho Verde
+  - Alvarinho
+  - Cava
+  sommelier_notes: Salgado de bar clássico. Pede a acidez, frescor e mineralidade
+    de um Vinho Verde gelado, que quebra a fritura e harmoniza com o peixe salgado.
+  source: Guia de Vinhos de Portugal
+  curated_by: manual
+  confidence: high
+- id: coxinha
+  display_name: Coxinha de Frango
+  cuisine: brasileira
+  aliases:
+  - coxinha de frango com catupiry
+  - coxinha
+  ingredients_primary:
+  - frango_desfiado
+  - massa_batata
+  - requeijao
+  - farinha_rosca
+  ingredients_secondary:
+  - cebola
+  - alho
+  - salsa
+  - oleo_fritura
+  cooking_method: frito
+  main_protein: ave
+  vivino_food_tags:
+  - Aves
+  - Aperitivos e lanches
+  - Qualquer junk food serve
+  flavor_keywords_match:
+  - manteiga
+  - pêssego
+  - limão
+  - brioche
+  - creme
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 3.5
+    - 4.5
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 3
+  - 2
+  preferred_styles:
+  - Espumante Brut (BR)
+  - Chardonnay leve
+  - Chenin Blanc
+  sommelier_notes: A fritura e o catupiry pedem acidez e bolhas. Um bom espumante
+    Brut brasileiro corta a gordura, enquanto um Chardonnay combina com a cremosidade
+    do queijo e do frango.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: pastel_carne
+  display_name: Pastel de Carne
+  cuisine: brasileira
+  aliases:
+  - pastel de feira
+  - pastel frito
+  - pastel de carne moída
+  ingredients_primary:
+  - massa_pastel
+  - carne_moida
+  - ovo_cozido
+  - azeitona
+  ingredients_secondary:
+  - cebola
+  - alho
+  - salsa
+  - oleo_fritura
+  cooking_method: frito
+  main_protein: carne_vermelha
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Carne de vaca
+  - Qualquer junk food serve
+  flavor_keywords_match:
+  - cereja
+  - pimenta
+  - carvalho
+  - torrada
+  - terra
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 3.5
+    - 4.5
+    tannin:
+    - 1.5
+    - 2.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 3
+  - 1
+  - 4
+  preferred_styles:
+  - Espumante Brut Rosé
+  - Merlot leve
+  - Lambrusco Seco
+  sommelier_notes: Carne temperada em massa frita. Um Lambrusco seco gelado tem gás
+    para limpar o óleo e fruta vermelha para a carne. Espumantes ou tintos muito leves
+    também servem.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: azeitonas_temperadas
+  display_name: Azeitonas Temperadas
+  cuisine: internacional
+  aliases:
+  - azeitonas marinadas
+  - mix de azeitonas
+  ingredients_primary:
+  - azeitona_verde
+  - azeitona_preta
+  - azeite
+  - alho
+  ingredients_secondary:
+  - oregano
+  - pimenta_calabresa
+  - limao
+  cooking_method: cru
+  main_protein: 'null'
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Vegetariano
+  flavor_keywords_match:
+  - limão
+  - erva
+  - minerais
+  - grama
+  - sal
+  target_structure:
+    body:
+    - 1.0
+    - 2.5
+    acidity:
+    - 4.0
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 1.5
+  suggested_wine_types:
+  - 2
+  - 24
+  preferred_styles:
+  - Jerez Fino
+  - Manzanilla
+  - Sauvignon Blanc
+  sommelier_notes: Muitíssimo salgado e untuoso. O match clássico ibérico é o vinho
+    fortificado seco Jerez Fino (ou Manzanilla), famoso por sua salinidade.
+  source: What to Drink with What You Eat
+  curated_by: manual
+  confidence: high
+- id: pao_alho
+  display_name: Pão de Alho
+  cuisine: brasileira
+  aliases:
+  - pão de alho na brasa
+  - pão com pasta de alho
+  ingredients_primary:
+  - pao_frances
+  - pasta_de_alho
+  - queijo
+  - manteiga
+  ingredients_secondary:
+  - oregano
+  - salsa
+  cooking_method: grelhado
+  main_protein: 'null'
+  vivino_food_tags:
+  - Aperitivos e lanches
+  flavor_keywords_match:
+  - manteiga
+  - torrada
+  - brioche
+  - limão
+  - maçã
+  target_structure:
+    body:
+    - 2.5
+    - 4.0
+    acidity:
+    - 3.5
+    - 4.5
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 2
+  - 1
+  preferred_styles:
+  - Sauvignon Blanc
+  - Chardonnay
+  - Tinto leve
+  sommelier_notes: A estrela dos churrascos é intenso no alho e na manteiga. Brancos
+    frescos cortam o alho cru, mas na prática, acompanha o tinto que já está aberto
+    pro churrasco.
+  source: Consenso sommelier BR
+  curated_by: manual
+  confidence: high
+- id: amendoim_torrado
+  display_name: Amendoim Torrado / Salgadinhos
+  cuisine: internacional
+  aliases:
+  - amendoim
+  - castanhas salgadas
+  - snacks de bar
+  ingredients_primary:
+  - amendoim_torrado
+  - sal
+  ingredients_secondary:
+  - oleo
+  cooking_method: assado
+  main_protein: 'null'
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Qualquer junk food serve
+  flavor_keywords_match:
+  - amêndoa
+  - torrada
+  - carvalho
+  - limão
+  - minerais
+  target_structure:
+    body:
+    - 1.5
+    - 3.5
+    acidity:
+    - 3.5
+    - 5.0
+    tannin:
+    - 1.0
+    - 2.0
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 3
+  - 2
+  - 24
+  preferred_styles:
+  - Espumante
+  - Cava
+  - Jerez Fino
+  sommelier_notes: O sal excessivo de amendoins de bar exige vinhos que refresquem.
+    Um espumante seco (como Cava) corta o sal maravilhosamente e prepara a boca.
+  source: What to Drink with What You Eat
+  curated_by: manual
+  confidence: high
+- id: fondue_queijo
+  display_name: Fondue de Queijo
+  cuisine: internacional
+  aliases:
+  - fondue
+  - fondue suiço
+  ingredients_primary:
+  - queijo_gruyere
+  - queijo_emmental
+  - vinho_branco
+  - pao
+  ingredients_secondary:
+  - noz_moscada
+  - alho
+  cooking_method: derretido
+  main_protein: 'null'
+  vivino_food_tags:
+  - Aperitivos e lanches
+  - Vegetariano
+  flavor_keywords_match:
+  - maçã
+  - pêssego
+  - manteiga
+  - limão
+  - minerais
+  target_structure:
+    body:
+    - 2.5
+    - 4.0
+    acidity:
+    - 4.0
+    - 5.0
+    tannin:
+    - 1.0
+    - 1.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 2
+  preferred_styles:
+  - Sauvignon Blanc
+  - Chasselas
+  - Riesling
+  sommelier_notes: Prato suíço riquíssimo. Exige um branco muito ácido para limpar
+    o paladar e ajudar na digestão do queijo derretido.
+  source: Consenso sommelier
+  curated_by: manual
+  confidence: high
+- id: tacos_mexicanos
+  display_name: Tacos Mexicanos
+  cuisine: internacional
+  aliases:
+  - tacos picantes
+  - comida mexicana
+  - nachos com guacamole
+  ingredients_primary:
+  - tortilla
+  - carne_moida
+  - pimenta_jalapeno
+  - guacamole
+  ingredients_secondary:
+  - feijao
+  - queijo
+  - tomate
+  cooking_method: salteado
+  main_protein: carne_vermelha
+  vivino_food_tags:
+  - Comida picante
+  - Carne de vaca
+  flavor_keywords_match:
+  - pimenta
+  - tomate
+  - erva
+  - cereja
+  - ameixa
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 3.5
+    - 4.5
+    tannin:
+    - 1.0
+    - 2.0
+    sweetness:
+    - 1.5
+    - 3.0
+  suggested_wine_types:
+  - 4
+  - 2
+  - 1
+  preferred_styles:
+  - Rosé frutado
+  - Riesling
+  - Zinfandel leve
+  sommelier_notes: A pimenta e os temperos fortes pedem vinhos refrescantes, frutados
+    e com baixo tanino. Um Rosé bem gelado apaga o fogo da pimenta.
+  source: Wine Enthusiast
+  curated_by: manual
+  confidence: high
+- id: hot_dog
+  display_name: Cachorro Quente / Hot Dog
+  cuisine: internacional
+  aliases:
+  - hot dog
+  - cachorro quente com purê
+  ingredients_primary:
+  - salsicha
+  - pao_hotdog
+  - pure_batata
+  ingredients_secondary:
+  - batata_palha
+  - ketchup
+  - mostarda
+  cooking_method: cozido
+  main_protein: carne_porco
+  vivino_food_tags:
+  - Qualquer junk food serve
+  - Carne curada
+  flavor_keywords_match:
+  - fumaça
+  - pimenta
+  - cereja
+  - morango
+  - tomate
+  target_structure:
+    body:
+    - 2.0
+    - 3.5
+    acidity:
+    - 3.0
+    - 4.5
+    tannin:
+    - 1.0
+    - 2.0
+    sweetness:
+    - 1.5
+    - 3.0
+  suggested_wine_types:
+  - 4
+  - 3
+  - 1
+  preferred_styles:
+  - Rosé Seco
+  - Lambrusco
+  - Gamay
+  sommelier_notes: Comida de rua muito condimentada. Vinhos descontraídos, frutados
+    e com boa acidez como um Lambrusco ou um Rosé cortam os molhos doces (ketchup).
+  source: Consenso sommelier
+  curated_by: manual
+  confidence: high
+- id: bife_ancho
+  display_name: Bife Ancho / Contra Filé
+  cuisine: argentina
+  aliases:
+  - bife ancho
+  - contra filé
+  - bife de chorizo
+  - entrecôte
+  ingredients_primary:
+  - carne_vermelha
+  ingredients_secondary:
+  - sal_grosso
+  - manteiga
+  - pimenta_preta
+  cooking_method: grelhado
+  main_protein: carne_vermelha
+  vivino_food_tags:
+  - Carne de vaca
+  flavor_keywords_match:
+  - carvalho
+  - amora
+  - pimenta
+  - fumaça
+  - terra
+  target_structure:
+    body:
+    - 3.5
+    - 5.0
+    acidity:
+    - 3.0
+    - 4.0
+    tannin:
+    - 3.0
+    - 4.5
+    sweetness:
+    - 1.0
+    - 2.0
+  suggested_wine_types:
+  - 1
+  preferred_styles:
+  - Malbec
+  - Cabernet Sauvignon
+  - Syrah
+  sommelier_notes: Corte suculento com boa camada de gordura marmorizada. Exige um
+    tinto encorpado e com taninos que selem a proteína, clássico de parrilla.
+  source: Guia Descorchados
+  curated_by: manual
+  confidence: high
+
+- id: peixe_frito
+  display_name: Peixe Frito
+  aliases:
+    - isca de peixe
+    - peixe empanado
+    - fish and chips
+  vivino_food_tags:
+    - Peixe magro
+  flavor_keywords_match:
+    - limão
+    - cítrico
+  target_structure:
+    body: [1, 3]
+    acidity: [3.5, 5]
+    tannin: [0, 1]
+    sweetness: [0, 1.5]
+  suggested_wine_types: [2, 3] # Branco, Espumante

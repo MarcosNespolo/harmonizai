@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Environments
+venv/
+env/
+.env
+
+# Logs and databases
+logs/
+*.db
+*.sqlite3
