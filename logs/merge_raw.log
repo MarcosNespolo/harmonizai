@@ -1,0 +1,8 @@
+2026-04-22 21:32:33,161 - INFO - Iniciando o merge bruto dos arquivos JSON...
+2026-04-22 21:32:33,166 - INFO - Encontrados 437 arquivos JSON na pasta raw.
+2026-04-22 21:32:37,249 - INFO - Salvando 1688 vinhos únicos em C:\Users\marco\OneDrive\Documentos\HarmonizaAi\data\interim\wines_all.jsonl...
+2026-04-22 21:32:38,252 - INFO - Merge finalizado com sucesso!
+2026-04-22 21:32:38,252 - INFO - Total de arquivos lidos: 437 de 437
+2026-04-22 21:32:38,252 - INFO - Total de arquivos inválidos/pulados: 0
+2026-04-22 21:32:38,252 - INFO - Total de vinhos antes da deduplicação: 10925
+2026-04-22 21:32:38,252 - INFO - Total de vinhos após deduplicação: 1688
