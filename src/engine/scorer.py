@@ -10,24 +10,21 @@ def calculate_food_tag_score(dish_tags: list, wine_tags: dict) -> float:
     if not dish_tags or not wine_tags:
         return 0.0
         
-    score_sum = 0
-    max_possible = 0
-    
-    # Vivino geralmente define weight de 1 a 100
+    matches = 0
     for tag in dish_tags:
-        max_possible += 100 
-        
-        # O wine_tags pode ter a primeira letra maiuscula ou nao, vamos normalizar
         tag_lower = tag.lower()
-        for w_tag, w_data in wine_tags.items():
+        for w_tag in wine_tags.keys():
             if w_tag.lower() == tag_lower:
-                score_sum += w_data.get("weight", 0)
+                matches += 1
                 break
                 
-    if max_possible == 0:
+    if matches == 0:
         return 0.0
         
-    return min(1.0, score_sum / max_possible)
+    # Como as tags do Vivino são categorias amplas (ex: "Carne de vaca"), 
+    # ter pelo menos um match já é um excelente sinal.
+    # Ex: 1 match = 0.8, 2+ matches = 1.0
+    return min(1.0, 0.6 + (matches * 0.2))
 
 def calculate_flavor_score(dish_flavors: list, wine_flavors: list) -> float:
     """
@@ -72,7 +69,8 @@ def _calc_structure_dist(val: float, target_range: list) -> float:
         dist = val - max_val
         
     # A escala do vivino é 1 a 5
-    return max(0.0, 1.0 - (dist / 5.0))
+    # Punição severa: erro de 1.5 pontos fora do target range zera a nota daquele componente
+    return max(0.0, 1.0 - (dist / 1.5))
 
 def calculate_structure_score(dish_structure: dict, wine_structure: dict) -> float:
     """
@@ -113,18 +111,19 @@ def calculate_total_score(dish_data: dict, wine_data: dict) -> dict:
     """
     Aplica a formula completa e retorna os componentes detalhados.
     """
-    # Pesos
-    W_FOOD = 0.45
-    W_FLAVOR = 0.30
-    W_STRUCT = 0.20
-    W_RATING = 0.05
+    # Pesos ajustados para evitar "blockbuster effect" (vinhos premium dominando tudo)
+    W_FOOD = 0.40
+    W_FLAVOR = 0.15
+    W_STRUCT = 0.45
+    W_RATING = 0.00 # Apenas desempate (adicionado depois do total)
     
     s_food = calculate_food_tag_score(dish_data.get("vivino_food_tags", []), wine_data.get("food_tags", {}))
     s_flavor = calculate_flavor_score(dish_data.get("flavor_keywords_match", []), wine_data.get("flavors", []))
     s_struct = calculate_structure_score(dish_data.get("target_structure", {}), wine_data.get("structure", {}))
     s_rating = calculate_rating_score(wine_data.get("rating", 0))
     
-    total = (W_FOOD * s_food) + (W_FLAVOR * s_flavor) + (W_STRUCT * s_struct) + (W_RATING * s_rating)
+    # Adiciona 0.01 * s_rating só pra não dar empate exato, mas sem afetar os outros fatores
+    total = (W_FOOD * s_food) + (W_FLAVOR * s_flavor) + (W_STRUCT * s_struct) + (0.01 * s_rating)
     
     return {
         "total_score": round(total, 4),

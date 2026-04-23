@@ -13,7 +13,7 @@ def main():
     matcher = FoodMatcher()
     engine = RecommendationEngine()
     
-    query = "vou fazer um churrasco de picanha"
+    query = "uma bela pizza de calabresa"
     print(f"\n1. NLP recebendo a query: '{query}'")
     
     # Processa texto via NLP
