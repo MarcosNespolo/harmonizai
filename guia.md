@@ -836,7 +836,214 @@ Para cada tarefa do roadmap:
 
 ---
 
-## 10. Features Bônus (pós-MVP)
+## 10. Próximos Passos
+
+Esta seção documenta as evoluções planejadas, ordenadas por impacto e viabilidade, com detalhamento técnico suficiente para implementação futura.
+
+---
+
+### 10.1 Botão "Pesquisar no Google Shopping"
+
+**Objetivo**: permitir que o usuário encontre onde comprar o vinho recomendado sem sair da interface.
+
+**Status**: parcialmente implementado no CLI (`interativo.py` já gera a URL).
+
+**Para o frontend Streamlit** (`src/frontend/app.py`):
+```python
+# Cada card de vinho recebe um botão de ação
+shop_url = f"https://www.google.com/search?q={winery}+{wine_name}+vinho&tbm=shop"
+st.link_button("🛒 Ver no Google Shopping", shop_url)
+```
+
+**Considerações**:
+- A URL é montada localmente — nenhuma chamada de API externa necessária.
+- Incluir país do vinho na query melhora relevância dos resultados.
+- Alternativa futura: deep link direto para Vivino ou Wine.com.br quando disponível.
+
+---
+
+### 10.2 Reconhecimento de Preço/Orçamento no Texto
+
+**Objetivo**: entender quando o usuário menciona restrição de preço e usar esse sinal no ranking.
+
+**Status**: implementado em `src/nlp/pipeline.py` — método `extract_price_intent()`.
+
+**O que já funciona**:
+- Detecta palavras como `barato`, `econômico`, `acessível` → `price_intent: "budget"`.
+- Detecta `moderado`, `razoável` → `price_intent: "moderate"`.
+- Detecta `premium`, `caro`, `sofisticado` → `price_intent: "premium"`.
+- Extrai valor numérico: `"até R$80"`, `"menos de 100 reais"` → `max_price: 80.0`.
+
+**Próximo passo** — usar o `price_intent` no scorer:
+```python
+# scorer.py: penalizar vinhos caros quando price_intent == "budget"
+# Isso requer um campo de preço médio no banco (ver 10.3)
+if dish_data.get("price_intent") == "budget" and wine_data.get("avg_price", 999) > 80:
+    total_score -= 0.15  # penalidade suave
+```
+
+**Para funcionar completamente**: depende do enriquecimento de preços (item 10.3).
+
+---
+
+### 10.3 Valor Médio do Vinho nos Resultados
+
+**Objetivo**: mostrar faixa de preço estimada ao lado de cada vinho recomendado.
+
+**Status**: não implementado — o dataset atual não contém preços.
+
+**Fontes de dados possíveis**:
+1. **Re-scraping da Vivino** com o campo `price_range` (campo existe na API pública mas não foi coletado).
+2. **API Wine.com.br** ou **Adega** para preços no mercado brasileiro.
+3. **Enriquecimento manual** para os vinhos mais recorrentes no top-5.
+
+**Schema proposto** — adicionar à tabela `wines`:
+```sql
+ALTER TABLE wines ADD COLUMN avg_price_brl REAL;   -- preço médio em R$
+ALTER TABLE wines ADD COLUMN price_updated_at TEXT; -- data da última atualização
+```
+
+**Script de enriquecimento** (`src/data/enrich_prices.py`):
+```python
+# Placeholder — lógica de scraping/API a definir
+def fetch_price(wine_name: str, winery: str) -> float | None:
+    ...
+```
+
+**Exibição no frontend**:
+```python
+price_str = f"R$ {rec['avg_price_brl']:.0f}" if rec.get("avg_price_brl") else "Preço não disponível"
+st.metric("Preço médio", price_str)
+```
+
+---
+
+### 10.4 Área de Resultados Visível Antes da Busca (Skeleton Loader)
+
+**Objetivo**: melhorar percepção de velocidade mostrando o layout dos cards antes de os dados chegarem.
+
+**Status**: implementado no CLI com mensagem de espera (`"🍷 Buscando os melhores vinhos..."`).
+
+**Para o frontend Streamlit**, usar `st.spinner` + containers reservados:
+```python
+# Reserva o espaço visual imediatamente
+results_area = st.empty()
+
+with st.spinner("🍷 Buscando os melhores vinhos para você..."):
+    recommendations = engine.recommend(dish_data, limit=5)
+
+# Preenche os cards após retorno
+with results_area.container():
+    for rec in recommendations:
+        render_wine_card(rec)
+```
+
+**Alternativa com skeleton** (usando `st.columns` + placeholder cinza):
+```python
+# Mostra cards "fantasma" enquanto processa
+skeleton_cols = st.columns(5)
+for col in skeleton_cols:
+    col.markdown("⬜ ...")  # substituído pelos dados reais
+```
+
+**Nota**: a busca atual leva < 1s para 1.688 vinhos; o skeleton é principalmente ganho de UX percebida.
+
+---
+
+### 10.5 Registro de Solicitações de Harmonização para Métricas
+
+**Objetivo**: acumular dados de uso real para orientar melhorias futuras no modelo.
+
+**Status**: implementado em `src/engine/metrics.py` e integrado ao `interativo.py`.
+
+**Tabela criada automaticamente** (`harmonization_requests`):
+
+| Campo                    | Tipo    | Descrição                                  |
+|--------------------------|---------|--------------------------------------------|
+| `id`                     | INTEGER | PK autoincrement                           |
+| `query_text`             | TEXT    | Texto original do usuário                  |
+| `dish_matched`           | TEXT    | ID do prato reconhecido                    |
+| `match_confidence`       | REAL    | Confiança do match NLP (0-1)               |
+| `match_type`             | TEXT    | `exact_phrase` ou `fuzzy_token_set`        |
+| `price_intent`           | TEXT    | `budget`, `moderate`, `premium` ou null    |
+| `max_price`              | REAL    | Valor máximo extraído do texto (R$)        |
+| `recommendations_returned` | INTEGER | Quantidade de vinhos retornados           |
+| `top_wine_id`            | INTEGER | ID do vinho #1 recomendado                 |
+| `top_wine_name`          | TEXT    | Nome do vinho #1                           |
+| `top_wine_score`         | REAL    | Score total do vinho #1                    |
+| `created_at`             | TEXT    | Timestamp ISO-8601 (UTC)                   |
+
+**Consultas úteis para análise futura**:
+```sql
+-- Pratos mais solicitados
+SELECT dish_matched, COUNT(*) as total
+FROM harmonization_requests
+WHERE dish_matched IS NOT NULL
+GROUP BY dish_matched ORDER BY total DESC LIMIT 10;
+
+-- Taxa de reconhecimento NLP
+SELECT
+    COUNT(*) as total,
+    SUM(CASE WHEN dish_matched IS NOT NULL THEN 1 ELSE 0 END) as reconhecidos,
+    ROUND(100.0 * SUM(CASE WHEN dish_matched IS NOT NULL THEN 1 ELSE 0 END) / COUNT(*), 1) as taxa_pct
+FROM harmonization_requests;
+
+-- Distribuição de intenção de preço
+SELECT price_intent, COUNT(*) as total
+FROM harmonization_requests
+GROUP BY price_intent;
+
+-- Vinhos mais recomendados
+SELECT top_wine_name, COUNT(*) as aparicoes
+FROM harmonization_requests
+WHERE top_wine_name IS NOT NULL
+GROUP BY top_wine_name ORDER BY aparicoes DESC LIMIT 10;
+```
+
+**Próximo passo**: criar notebook `notebooks/02_metrics.ipynb` com visualizações periódicas.
+
+---
+
+### 10.6 Melhorias no Modelo
+
+Oportunidades de melhoria identificadas, priorizadas por esforço vs. ganho esperado:
+
+#### 10.6.1 Ajuste de pesos baseado em dados reais
+Hoje os pesos `(0.40 food, 0.15 flavor, 0.45 structure, 0.01 rating)` foram definidos manualmente.
+Com os dados de `harmonization_requests` acumulados, é possível fazer **otimização por grid search**
+usando o conjunto de avaliação (`evaluation/test_cases.yaml`) como função objetivo.
+
+#### 10.6.2 Filtro por preço quando `max_price` for informado
+Assim que o campo `avg_price_brl` for adicionado ao banco, o `recommender.py` deve filtrar:
+```python
+if max_price:
+    query += " AND (avg_price_brl IS NULL OR avg_price_brl <= ?)"
+    params.append(max_price)
+```
+
+#### 10.6.3 Suporte a múltiplos pratos na mesma query
+Hoje apenas o prato de maior confiança é usado. Para queries como
+`"risoto de cogumelos e filé mignon"`, o sistema deve mesclar os atributos dos dois pratos:
+```python
+merged_dish = merge_dish_attributes(dish_list)  # media ponderada de target_structure
+```
+
+#### 10.6.4 Cobertura do NLP — expansão do dishes.yaml
+A `coverage_test.py` mede taxa atual de reconhecimento em 50 queries sintéticas.
+Meta: **90%+ de cobertura** com ≥ 150 pratos no YAML.
+Priorizar pratos que aparecem em queries reais (fonte: `harmonization_requests.query_text`).
+
+#### 10.6.5 Score de raridade / diversidade
+Evitar que o top-5 seja dominado por vinhos do mesmo estilo/região.
+Penalidade suave por repetição de `style_name` ou `country` nos resultados.
+
+#### 10.6.6 Feedback implícito via Google Shopping
+Rastrear quais vinhos geraram clique no link de compra (requer middleware no frontend)
+para usar como sinal de relevância futuro.
+
+---
+
+## 11. Features Bônus (pós-MVP)
 
 - **Modo "surpreenda-me"**: recomendação fora do óbvio, usando exploração controlada.
 - **Comparador**: mostrar lado-a-lado 2-3 vinhos com diferenças destacadas.
