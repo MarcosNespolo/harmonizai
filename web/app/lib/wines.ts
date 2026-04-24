@@ -1,49 +1,58 @@
-export type WineListState = "empty" | "loading" | "populated";
+export type WineListState = "empty" | "loading" | "populated" | "error" | "not_found";
 
-export interface Wine {
-  id: string;
-  name: string;
-  winery: string;
-  vintage: number;
-  region: string;
-  matchScore: number;
-  matchLabel: string;
-  notes: string;
-  color: string;
+export interface WineComponents {
+  s_food: number;
+  s_flavor: number;
+  s_structure: number;
+  s_rating: number;
 }
 
-export const MOCK_WINES: Wine[] = [
-  {
-    id: "1",
-    name: "Cabernet Sauvignon Reserva",
-    winery: "Viña Errázuriz",
-    vintage: 2019,
-    region: "Chile · Valle del Aconcagua",
-    matchScore: 94,
-    matchLabel: "Excelente",
-    notes: "Corpo encorpado, taninos firmes, notas de cassis e especiarias.",
-    color: "#5b0c1b",
-  },
-  {
-    id: "2",
-    name: "Malbec Edición Limitada",
-    winery: "Catena Zapata",
-    vintage: 2020,
-    region: "Argentina · Mendoza",
-    matchScore: 88,
-    matchLabel: "Muito boa",
-    notes: "Frutado intenso, taninos aveludados, final persistente.",
-    color: "#7a2b33",
-  },
-  {
-    id: "3",
-    name: "Pinot Noir Gran Reserva",
-    winery: "Miguel Torres",
-    vintage: 2021,
-    region: "Chile · Valle de Curicó",
-    matchScore: 81,
-    matchLabel: "Boa",
-    notes: "Leve, elegante, notas de cereja e terra molhada.",
-    color: "#8b3a3a",
-  },
-];
+export interface WineScore {
+  total_score: number;
+  components: WineComponents;
+}
+
+export interface Wine {
+  id: number;
+  name: string;
+  winery: string;
+  type_id: number;
+  rating: number;
+  style_name: string;
+  country: string;
+  region: string;
+  image_url: string | null;
+  vivino_url: string;
+  score: WineScore;
+  characteristics: string[];
+  shop_url: string;
+}
+
+export interface ApiResponse {
+  dish: {
+    id: string;
+    display_name: string;
+    confidence: number;
+    match_type: string;
+  } | null;
+  message?: string;
+  price_intent: string | null;
+  max_price: number | null;
+  wines: Wine[];
+}
+
+export async function fetchRecommendations(query: string): Promise<ApiResponse> {
+  const response = await fetch("http://localhost:8000/api/recommend", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ query }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`API Error: ${response.status}`);
+  }
+
+  return response.json();
+}

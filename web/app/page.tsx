@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { WineList } from "./components/WineList";
-import { MOCK_WINES, type Wine, type WineListState } from "./lib/wines";
+import { fetchRecommendations, type Wine, type WineListState } from "./lib/wines";
 
 const EXAMPLES = ["Sushi", "Risoto", "Churrasco", "Salmão grelhado"];
 
@@ -16,14 +16,22 @@ export default function Home() {
   const canSubmit = input.trim().length > 0 && listState !== "loading";
   const isPopulated = listState === "populated";
 
-  const runSearch = () => {
+  const runSearch = async () => {
     if (!canSubmit) return;
     setListState("loading");
     setWines([]);
-    setTimeout(() => {
-      setWines(MOCK_WINES);
+    try {
+      const data = await fetchRecommendations(input);
+      if (!data.dish) {
+        setListState("not_found");
+        return;
+      }
+      setWines(data.wines);
       setListState("populated");
-    }, 1500);
+    } catch (error) {
+      console.error(error);
+      setListState("error");
+    }
   };
 
   const handleReset = () => {

@@ -1,6 +1,6 @@
 import type { Wine, WineListState } from "../lib/wines";
 
-const SLOT_COUNT = 3;
+const SLOT_COUNT = 5;
 
 interface WineListProps {
   state: WineListState;
@@ -12,6 +12,8 @@ export function WineList({ state, wines = [] }: WineListProps) {
   const showEmpty = state === "empty";
   const showLoading = state === "loading";
   const showPopulated = state === "populated";
+  const showNotFound = state === "not_found";
+  const showError = state === "error";
 
   return (
     <div className="flex w-full max-w-[560px] min-w-[560px] flex-col gap-4">
@@ -36,6 +38,16 @@ export function WineList({ state, wines = [] }: WineListProps) {
             </span>
           }
           text={`${wines.length} harmoniza${wines.length === 1 ? "ção" : "ções"} para seu prato.`}
+        />
+        <StateCaption
+          visible={showNotFound}
+          icon={<span className="text-xl leading-none">❌</span>}
+          text="Não consegui reconhecer o prato. Tente ser mais específico."
+        />
+        <StateCaption
+          visible={showError}
+          icon={<span className="text-xl leading-none">⚠️</span>}
+          text="Erro ao conectar com o motor de IA. Tente novamente."
         />
       </div>
 
@@ -91,7 +103,12 @@ function WineCard({ state, wine }: { state: WineListState; wine?: Wine }) {
               showReal ? "opacity-100" : "opacity-0"
             }`}
           >
-            <BottleVisual color={wine.color} />
+            {wine.image_url ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={wine.image_url} alt={wine.name} className="h-full w-full object-contain" />
+            ) : (
+              <BottleVisual color={getWineColor(wine.type_id)} />
+            )}
           </div>
         )}
       </div>
@@ -123,23 +140,43 @@ function WineCard({ state, wine }: { state: WineListState; wine?: Wine }) {
               {wine.name}
             </h3>
             <p className="mt-1 text-sm text-ink-muted">
-              {wine.winery} · {wine.vintage}
+              {wine.winery}
             </p>
             <p className="text-[10px] uppercase tracking-[0.08em] mt-1 text-ink-subtle">
-              {wine.region}
+              {wine.country} · {wine.region}
             </p>
-            <p className="mt-1.5 line-clamp-2 text-xs leading-snug text-ink-muted">
-              {wine.notes}
-            </p>
-            <div className="mt-auto inline-flex w-fit items-center gap-1.5 rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-              {wine.matchScore}% · {wine.matchLabel}
+            <div className="mt-1.5 flex flex-wrap gap-1">
+              {wine.characteristics.slice(0, 3).map((char, idx) => (
+                <span key={idx} className="rounded-sm bg-border/50 px-1.5 py-0.5 text-[10px] text-ink-muted">
+                  {char}
+                </span>
+              ))}
+            </div>
+            <div className="mt-auto flex items-center justify-between">
+              <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">
+                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                Score: {wine.score.total_score.toFixed(3)}
+              </div>
+              <div className="flex gap-3">
+                <a href={wine.vivino_url} target="_blank" rel="noreferrer" className="text-[11px] font-medium hover:text-primary transition-colors text-ink-subtle">Vivino</a>
+                <a href={wine.shop_url} target="_blank" rel="noreferrer" className="text-[11px] font-medium hover:text-primary transition-colors text-ink-subtle">Comprar</a>
+              </div>
             </div>
           </div>
         )}
       </div>
     </article>
   );
+}
+
+function getWineColor(typeId: number) {
+  switch (typeId) {
+    case 1: return "#5b0c1b"; // Red
+    case 2: return "#e2d893"; // White
+    case 3: return "#f4e087"; // Sparkling
+    case 4: return "#ffb6c1"; // Rosé
+    default: return "#5b0c1b";
+  }
 }
 
 function BottleVisual({ color }: { color: string }) {
