@@ -16,3 +16,21 @@
 2026-04-22 22:31:50,626 - INFO - Vinhos com rating: 1682
 2026-04-22 22:31:50,626 - INFO - Vinhos sem rating: 6
 2026-04-22 22:31:50,626 - INFO - Normalização concluída com sucesso!
+2026-04-24 15:22:33,595 - INFO - Iniciando normalização do dataset...
+2026-04-24 15:22:34,585 - INFO - Total de registros no JSONL: 1688
+2026-04-24 15:22:34,800 - INFO - Tabela wines: 1688 registros
+2026-04-24 15:22:34,800 - INFO - Tabela wine_foods: 6013 registros
+2026-04-24 15:22:34,800 - INFO - Tabela wine_flavors: 124103 registros
+2026-04-24 15:22:34,800 - INFO - ✅ Contagem OK: 1688 vinhos processados (0 descartados)
+2026-04-24 15:22:34,807 - INFO - ✅ Ranges numéricos dentro do esperado (0-5)
+2026-04-24 15:22:34,808 - INFO - ✅ Ratings dentro do esperado (0-5)
+2026-04-24 15:22:35,120 - INFO - ✅ Parquet salvo em C:\Users\marco\OneDrive\Documentos\HarmonizaAi\data\processed\wines.parquet
+2026-04-24 15:22:35,881 - INFO - ✅ SQLite salvo em C:\Users\marco\OneDrive\Documentos\HarmonizaAi\data\processed\harmonizai.db
+2026-04-24 15:22:35,881 - INFO - --- Resumo Final ---
+2026-04-24 15:22:35,881 - INFO - Vinhos processados: 1688
+2026-04-24 15:22:35,881 - INFO - Vinhos descartados: 0
+2026-04-24 15:22:35,881 - INFO - Food labels extraídas: 6013
+2026-04-24 15:22:35,881 - INFO - Flavor keywords extraídas: 124103
+2026-04-24 15:22:35,883 - INFO - Vinhos com rating: 1682
+2026-04-24 15:22:35,883 - INFO - Vinhos sem rating: 6
+2026-04-24 15:22:35,884 - INFO - Normalização concluída com sucesso!

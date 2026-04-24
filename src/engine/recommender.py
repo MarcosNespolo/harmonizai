@@ -37,7 +37,8 @@ class RecommendationEngine:
         query = f"""
             SELECT 
                 id, name, winery, type_id, avg_rating,
-                body, acidity_raw, tannin, sweetness, style_name
+                body, acidity_raw, tannin, sweetness, style_name,
+                country, region, image_url
             FROM wines
             WHERE type_id IN ({placeholders})
         """
@@ -48,7 +49,10 @@ class RecommendationEngine:
         recommendations = []
         
         for w in wines:
-            wine_id, name, winery, type_id, avg_rating, body, acidity, tannin, sweetness, style_name = w
+            wine_id, name, winery, type_id, avg_rating, body, acidity, tannin, sweetness, style_name, country, region, image_url = w
+            
+            # URL pública da página do vinho no Vivino
+            vivino_url = f"https://www.vivino.com/w/{wine_id}"
             
             # Formatar pra passar pro scorer
             wine_data = {
@@ -58,6 +62,10 @@ class RecommendationEngine:
                 "type_id": type_id,
                 "rating": avg_rating,
                 "style_name": style_name,
+                "country": country,
+                "region": region,
+                "image_url": image_url,
+                "vivino_url": vivino_url,
                 "structure": {
                     "body": body,
                     "acidity": acidity,
@@ -74,7 +82,11 @@ class RecommendationEngine:
             # 2. Calcular Score
             score_data = calculate_total_score(dish_data, wine_data)
             
-            # Limpa listas gigantes pra n poluir retorno json
+            # Converte flavors pra lista simples de características (keywords)
+            characteristics = list({f["keyword"] for f in flavors if f.get("keyword")})
+            wine_data["characteristics"] = characteristics
+            
+            # Limpa listas internas de scoring pra n poluir retorno json
             del wine_data["food_tags"]
             del wine_data["flavors"]
             

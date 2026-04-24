@@ -71,6 +71,20 @@ def extract_wine_row(item: dict) -> dict | None:
     avg_rating = round(sum(review_ratings) / len(review_ratings), 2) if review_ratings else None
     num_ratings = len(review_ratings)
 
+    # ── Imagem do rótulo via vintage dos reviews ──────────────────────────
+    image_url = None
+    for review in reviews:
+        vintage = review.get('vintage') or {}
+        img = vintage.get('image') or {}
+        variations = img.get('variations') or {}
+        # Preferência: bottle_large > large > location
+        url = variations.get('bottle_large') or variations.get('large') or img.get('location')
+        if url:
+            if url.startswith('//'):
+                url = 'https:' + url
+            image_url = url
+            break
+
     return {
         'id': wine_id,
         'name': item.get('name'),
@@ -80,6 +94,7 @@ def extract_wine_row(item: dict) -> dict | None:
         'country_code': country_obj.get('code'),
         'region': region_obj.get('name'),
         'winery': (item.get('winery') or {}).get('name'),
+        'image_url': image_url,
         'style_name': style_obj.get('name'),
         'body': style_obj.get('body'),
         'acidity_raw': structure.get('acidity'),

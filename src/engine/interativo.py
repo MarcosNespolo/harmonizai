@@ -81,9 +81,21 @@ def main():
             c = rec['score']['components']
             wine_name = rec['name']
             winery = rec['winery']
+            country = rec.get('country', '—')
+            region = rec.get('region', '—')
+            image_url = rec.get('image_url')
+            vivino_url = rec.get('vivino_url', '')
+            characteristics = rec.get('characteristics', [])
             shop_url = _google_shopping_url(wine_name, winery)
-            print(f" {i}. {winery} - {wine_name}")
+
+            print(f" {i}. {winery} — {wine_name}")
+            print(f"    📍 {country} · {region}")
             print(f"    ⭐ {rec['rating']} | Score: {score:.3f} | [Food: {c['s_food']:.2f}] [Flavor: {c['s_flavor']:.2f}] [Struct: {c['s_structure']:.2f}]")
+            if characteristics:
+                print(f"    🏷️  Características: {', '.join(characteristics[:8])}")
+            if image_url:
+                print(f"    🖼️  Imagem: {image_url}")
+            print(f"    🍇 Vivino: {vivino_url}")
             print(f"    🛒 Google Shopping: {shop_url}")
 
         print("\n" + "-"*50 + "\n")
