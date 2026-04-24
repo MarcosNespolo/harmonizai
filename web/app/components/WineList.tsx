@@ -14,7 +14,7 @@ export function WineList({ state, wines = [] }: WineListProps) {
   const showPopulated = state === "populated";
 
   return (
-    <div className="flex w-full flex-col gap-4">
+    <div className="flex w-full max-w-[560px] min-w-[560px] flex-col gap-4">
       <div className="relative flex min-h-[32px] items-center">
         <StateCaption
           visible={showEmpty}
@@ -77,7 +77,7 @@ function WineCard({ state, wine }: { state: WineListState; wine?: Wine }) {
 
   return (
     <article className="relative flex gap-4 rounded-xl border border-border bg-card p-4 shadow-[0_1px_2px_rgba(20,20,20,0.03)]">
-      <div className="relative h-[112px] w-[72px] shrink-0">
+      <div className="relative h-[168px] w-[108px] shrink-0">
         <div
           className={`${skeletonClass} flex h-full w-full items-center justify-center transition-opacity duration-300 ${
             showReal ? "opacity-0" : "opacity-100"
@@ -119,16 +119,16 @@ function WineCard({ state, wine }: { state: WineListState; wine?: Wine }) {
               showReal ? "opacity-100" : "opacity-0"
             }`}
           >
-            <h3 className="truncate text-[15px] font-semibold leading-tight tracking-tight text-ink">
+            <h3 className="truncate text-lg font-semibold leading-tight tracking-tight text-ink">
               {wine.name}
             </h3>
-            <p className="mt-1 text-[12px] text-ink-muted">
+            <p className="mt-1 text-sm text-ink-muted">
               {wine.winery} · {wine.vintage}
             </p>
-            <p className="text-[10px] uppercase tracking-[0.08em] text-ink-subtle">
+            <p className="text-[10px] uppercase tracking-[0.08em] mt-1 text-ink-subtle">
               {wine.region}
             </p>
-            <p className="mt-1.5 line-clamp-2 text-[12px] leading-snug text-ink-muted">
+            <p className="mt-1.5 line-clamp-2 text-xs leading-snug text-ink-muted">
               {wine.notes}
             </p>
             <div className="mt-auto inline-flex w-fit items-center gap-1.5 rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">

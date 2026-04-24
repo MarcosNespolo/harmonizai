@@ -52,29 +52,27 @@ export default function Home() {
         />
         <div className="flex flex-col">
           <h1
-            className="font-bold leading-none tracking-tight"
-            style={{ fontSize: "var(--text-display)" }}
+            className="font-bold leading-none tracking-tight text-2xl"
           >
             <span className="text-primary">Harmoniz</span>
             <span className="text-secondary">AI</span>
           </h1>
           <p
-            className="mt-1 text-ink-muted"
-            style={{ fontSize: "var(--text-tagline)" }}
+            className="mt-1 text-ink-muted text-sm"
           >
             Descubra o vinho ideal para sua refeição.
           </p>
         </div>
       </header>
 
-      <main className="mx-auto grid w-full max-w-[1120px] gap-8 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-16">
+      <main className="mx-auto grid w-fit gap-8 lg:grid-cols-2 lg:gap-16">
         <section className="flex items-center justify-center lg:justify-end">
           <form
             onSubmit={(e) => {
               e.preventDefault();
               runSearch();
             }}
-            className="flex w-full max-w-[560px] flex-col gap-3"
+            className="flex w-full sm:min-w-[560px] max-w-[560px] flex-col gap-3"
           >
             <label
               htmlFor="dish"
