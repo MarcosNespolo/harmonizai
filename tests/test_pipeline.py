@@ -1,5 +1,10 @@
-from pipeline import FoodMatcher
-import json
+import sys
+import os
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from src.nlp.pipeline import FoodMatcher
+
 
 def test_missing_queries():
     print("Inicializando o NLP Pipeline (Carregando modelo spaCy e YAML)...")
