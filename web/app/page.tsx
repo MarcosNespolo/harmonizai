@@ -76,7 +76,7 @@ export default function Home() {
           >
             <label
               htmlFor="dish"
-              className="text-ink-muted"
+              className="text-ink-muted cursor-pointer"
               style={{ fontSize: "var(--text-prompt)" }}
             >
               O que você vai comer hoje?
@@ -107,7 +107,7 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={handleReset}
-                    className="text-[12px] text-ink-subtle transition hover:text-primary"
+                    className="text-[12px] text-ink-subtle transition hover:text-primary cursor-pointer"
                   >
                     Nova busca
                   </button>
@@ -118,7 +118,7 @@ export default function Home() {
                   type="submit"
                   disabled={!canSubmit}
                   aria-label="Harmonizar"
-                  className="inline-flex h-9 items-center gap-1.5 rounded-full bg-primary pl-3.5 pr-3 text-[13px] font-medium text-white transition hover:bg-primary-deep disabled:cursor-not-allowed disabled:bg-ink-subtle/40 disabled:text-white"
+                  className="inline-flex h-9 items-center gap-1.5 rounded-full bg-primary pl-3.5 pr-3 text-[13px] font-medium text-white transition hover:bg-primary-deep disabled:cursor-not-allowed disabled:bg-ink-subtle/40 disabled:text-white cursor-pointer"
                 >
                   {listState === "loading" ? "Harmonizando…" : "Harmonizar"}
                   {listState !== "loading" && (
@@ -146,7 +146,7 @@ export default function Home() {
                   key={ex}
                   type="button"
                   onClick={() => pickExample(ex)}
-                  className="rounded-full border border-border/70 bg-transparent px-2.5 py-1 text-[12px] text-ink-muted transition hover:border-primary/30 hover:text-primary"
+                  className="rounded-full border border-border/70 bg-transparent px-2.5 py-1 text-[12px] text-ink-muted transition hover:border-primary/30 hover:text-primary cursor-pointer"
                 >
                   {ex}
                 </button>
