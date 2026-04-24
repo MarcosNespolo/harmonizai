@@ -1,9 +1,40 @@
 import os
+import re
 import yaml
 import spacy
 from spacy.matcher import PhraseMatcher
 from unidecode import unidecode
 from rapidfuzz import fuzz
+
+# Palavras que sinalizam orçamento baixo
+_BUDGET_WORDS = {
+    "barato", "baratos", "barata", "baratas",
+    "economico", "economica", "economicos", "economicas",
+    "acessivel", "acessiveis",
+    "simples", "basico", "basica",
+    "custo-beneficio", "custo beneficio",
+}
+
+# Palavras que sinalizam orçamento médio
+_MODERATE_WORDS = {
+    "moderado", "moderada", "razoavel", "razoaveis",
+    "intermediario", "intermediaria", "medio", "media",
+}
+
+# Palavras que sinalizam orçamento premium
+_PREMIUM_WORDS = {
+    "premium", "especial", "especiais",
+    "caro", "cara", "caros", "caras",
+    "alto", "alta", "refinado", "refinada",
+    "sofisticado", "sofisticada", "luxo",
+}
+
+# Regex para extrair valores monetários  ("até R$50", "menos de 100 reais", "por volta de 80")
+_PRICE_PATTERNS = [
+    re.compile(r"(?:ate|menos de|abaixo de|no maximo|maximo de)\s+r?\$?\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE),
+    re.compile(r"r?\$\s*(\d+(?:[.,]\d+)?)", re.IGNORECASE),
+    re.compile(r"(\d+(?:[.,]\d+)?)\s*(?:reais|real)", re.IGNORECASE),
+]
 
 class FoodMatcher:
     def __init__(self, dishes_path: str = None):
@@ -58,6 +89,49 @@ class FoodMatcher:
         # Adiciona todos os nomes de pratos e aliases no PhraseMatcher com o id 'DISH'
         self.matcher.add("DISH", patterns)
         
+    def extract_price_intent(self, query: str) -> dict:
+        """
+        Detecta intenção de preço/orçamento na query.
+
+        Retorna dict com:
+          - price_intent: "budget" | "moderate" | "premium" | None
+          - max_price: float | None  (quando o usuário informa um valor máximo)
+        """
+        norm = self._normalize(query)
+
+        # Tenta extrair valor numérico máximo
+        max_price = None
+        for pattern in _PRICE_PATTERNS:
+            match = pattern.search(norm)
+            if match:
+                try:
+                    max_price = float(match.group(1).replace(",", "."))
+                    break
+                except ValueError:
+                    pass
+
+        # Classifica por palavras-chave (verifica tokens normalizados)
+        tokens = set(re.split(r"\W+", norm))
+
+        if tokens & _BUDGET_WORDS:
+            price_intent = "budget"
+        elif tokens & _MODERATE_WORDS:
+            price_intent = "moderate"
+        elif tokens & _PREMIUM_WORDS:
+            price_intent = "premium"
+        elif max_price is not None:
+            # Sem palavra-chave mas com valor: classifica por faixa
+            if max_price <= 60:
+                price_intent = "budget"
+            elif max_price <= 150:
+                price_intent = "moderate"
+            else:
+                price_intent = "premium"
+        else:
+            price_intent = None
+
+        return {"price_intent": price_intent, "max_price": max_price}
+
     def match(self, query: str) -> dict:
         """
         Processa a query do usuário e retorna pratos identificados.
@@ -109,9 +183,13 @@ class FoodMatcher:
         # Extrair palavras-chave apenas para log/informação (não usamos mais para o match)
         extracted_terms = [token.text for token in doc if not token.is_stop and not token.is_punct and len(token.text) > 2]
 
+        price_info = self.extract_price_intent(query)
+
         return {
             "matched_dishes": matched_results,
-            "extracted_terms": extracted_terms
+            "extracted_terms": extracted_terms,
+            "price_intent": price_info["price_intent"],
+            "max_price": price_info["max_price"],
         }
 
 if __name__ == "__main__":
