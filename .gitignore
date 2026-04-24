@@ -1,6 +1,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+.pytest_cache/
 
 # Jupyter Notebooks
 .ipynb_checkpoints/
@@ -14,3 +15,7 @@ env/
 logs/
 *.db
 *.sqlite3
+
+# IDE
+.vscode/
+.idea/

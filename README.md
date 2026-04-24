@@ -129,7 +129,7 @@ A estrutura de dados retornada pelo `RecommendationEngine.recommend()`:
 ## Estrutura do projeto
 
 ```
-HarmonizaAi/
+harmonizai/
 ├── data/
 │   ├── raw/                  # 437 JSONs da Vivino (não versionados)
 │   ├── interim/
@@ -139,21 +139,29 @@ HarmonizaAi/
 │   │   └── harmonizai.db     # tabelas: wines, wine_foods, wine_flavors, wines_fts
 │   └── dishes.yaml           # 101 pratos curados → atributos
 ├── src/
+│   ├── api/
+│   │   └── app.py            # API HTTP (FastAPI)
 │   ├── data/
 │   │   ├── merge_raw.py      # 437 JSONs → wines_all.jsonl
 │   │   └── normalize.py      # JSONL → parquet + SQLite
 │   ├── nlp/
-│   │   ├── pipeline.py       # FoodMatcher (PhraseMatcher exato + fuzzy fallback)
-│   │   ├── test_pipeline.py
-│   │   └── coverage_test.py  # avaliação com 50 queries sintéticas
+│   │   └── pipeline.py       # FoodMatcher (PhraseMatcher exato + fuzzy fallback)
 │   └── engine/
 │       ├── scorer.py         # cálculo dos componentes do score
 │       ├── recommender.py    # query no SQLite + ranking
-│       ├── interativo.py     # CLI ponta-a-ponta
-│       └── test_engine.py
+│       ├── metrics.py        # log de requisições
+│       └── cli.py            # CLI interativa ponta-a-ponta
+├── tests/
+│   ├── test_pipeline.py
+│   ├── test_engine.py
+│   ├── test_api.py
+│   └── test_coverage.py      # avaliação com 50 queries sintéticas
 ├── notebooks/
-│   └── exploration.ipynb     # EDA: cobertura, distribuições, vocabulário
-└── logs/
+│   ├── exploration.ipynb     # EDA: cobertura, distribuições, vocabulário
+│   ├── explore_nlp.ipynb     # experimentação no FoodMatcher
+│   └── explore_engine.ipynb  # experimentação no motor completo
+├── web/                      # frontend Next.js
+└── logs/                     # (gitignored)
 ```
 
 ---
@@ -162,15 +170,18 @@ HarmonizaAi/
 
 ```bash
 # Dependências
-pip install spacy rapidfuzz unidecode pandas pyarrow pyyaml
+pip install spacy rapidfuzz unidecode pandas pyarrow pyyaml fastapi uvicorn
 python -m spacy download pt_core_news_sm
 
 # Preparar dados (executar em ordem, a partir da raiz do projeto)
-python src/data/merge_raw.py
-python src/data/normalize.py
+python -m src.data.merge_raw
+python -m src.data.normalize
 
 # CLI interativa (recomendação ponta-a-ponta)
-python -m src.engine.interativo
+python -m src.engine.cli
+
+# API HTTP
+uvicorn src.api.app:app --reload
 ```
 
 ---
@@ -208,7 +219,7 @@ Em [src/nlp/pipeline.py](src/nlp/pipeline.py):
 2. **PhraseMatcher do spaCy** — busca exata sobre `display_name` + `aliases` de todos os pratos.
 3. **Fallback fuzzy** (`rapidfuzz.token_set_ratio ≥ 75`) — só dispara se a busca exata falhar; tolera ordem de palavras e palavras extras, mas pune queries com termos conflitantes.
 
-A cobertura atual é medida por [src/nlp/coverage_test.py](src/nlp/coverage_test.py) sobre 50 queries sintéticas.
+A cobertura atual é medida por [tests/test_coverage.py](tests/test_coverage.py) sobre 50 queries sintéticas.
 
 ---
 

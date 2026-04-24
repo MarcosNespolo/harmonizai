@@ -1,9 +1,7 @@
 import sys
 import os
-import json
 
-# Adiciona o diretório raiz ao PYTHONPATH para os imports funcionarem
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.nlp.pipeline import FoodMatcher
 from src.engine.recommender import RecommendationEngine
