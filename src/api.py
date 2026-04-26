@@ -40,7 +40,7 @@ app = FastAPI(title="HarmonizaAi API", lifespan=lifespan)
 # Configura CORS para permitir chamadas do Next.js
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Ajuste para produção depois
+    allow_origins=["*"],  # Em produção num ambiente real você pode restringir ao domínio da Vercel
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
