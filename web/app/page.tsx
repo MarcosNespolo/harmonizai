@@ -73,14 +73,14 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="mx-auto grid w-fit gap-8 lg:grid-cols-2 lg:gap-16">
+      <main className="mx-none w-full sm:mx-auto grid xl:w-fit gap-8 lg:grid-cols-2 lg:gap-16">
         <section className="flex items-center justify-center lg:justify-end">
           <form
             onSubmit={(e) => {
               e.preventDefault();
               runSearch();
             }}
-            className="flex w-full sm:min-w-[560px] max-w-[560px] flex-col gap-3"
+            className="flex w-full min-w-full xl:min-w-[560px] max-w-[560px] flex-col gap-3"
           >
             <label
               htmlFor="dish"

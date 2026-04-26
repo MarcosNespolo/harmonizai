@@ -1,7 +1,7 @@
 fastapi
 uvicorn
 pydantic
-spacy
+spacy==3.7.4
 rapidfuzz
 unidecode
 pandas

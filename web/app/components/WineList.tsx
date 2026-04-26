@@ -16,7 +16,7 @@ export function WineList({ state, wines = [] }: WineListProps) {
   const showError = state === "error";
 
   return (
-    <div className="flex w-full max-w-[560px] min-w-[560px] flex-col gap-4">
+    <div className="flex w-full max-w-[560px] min-w-full xl:min-w-[560px] flex-col gap-4">
       <div className="relative flex min-h-[32px] items-center">
         <StateCaption
           visible={showEmpty}
@@ -139,7 +139,7 @@ function WineCard({ state, wine }: { state: WineListState; wine?: Wine }) {
             <h3 className="truncate text-lg font-semibold leading-tight tracking-tight text-ink">
               {wine.name}
             </h3>
-            <p className="mt-1 text-sm text-ink-muted">
+            <p className="mt-1 text-sm text-ink-muted truncate">
               {wine.winery}
             </p>
             <p className="text-[10px] uppercase tracking-[0.08em] mt-1 text-ink-subtle">
@@ -152,10 +152,10 @@ function WineCard({ state, wine }: { state: WineListState; wine?: Wine }) {
                 </span>
               ))}
             </div>
-            <div className="mt-auto flex items-center justify-between">
+            <div className="mt-auto flex flex-row gap-2 sm:gap-0 items-center justify-between">
               <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                Score: {wine.score.total_score.toFixed(3)}
+                {+wine.score.total_score.toFixed(2) * 100} %
               </div>
               <div className="flex gap-3">
                 <a href={wine.vivino_url} target="_blank" rel="noreferrer" className="text-[11px] font-medium hover:text-primary transition-colors text-ink-subtle">Vivino</a>
