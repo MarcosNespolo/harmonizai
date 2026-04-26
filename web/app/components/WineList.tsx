@@ -155,7 +155,7 @@ function WineCard({ state, wine }: { state: WineListState; wine?: Wine }) {
             <div className="mt-auto flex flex-row gap-2 sm:gap-0 items-center justify-between">
               <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                {+wine.score.total_score.toFixed(2) * 100} %
+                {Math.min(100, Math.round(wine.score.total_score * 100))}%
               </div>
               <div className="flex gap-3">
                 <a href={wine.vivino_url} target="_blank" rel="noreferrer" className="text-[11px] font-medium hover:text-primary transition-colors text-ink-subtle">Vivino</a>
