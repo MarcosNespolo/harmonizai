@@ -21,14 +21,18 @@ Diferente de recomendadores genéricos baseados em LLM, o HarmonizAI é auditáv
 
 ## Estado atual
 
-Pipeline ponta-a-ponta funcional via CLI interativa:
+Pipeline ponta-a-ponta funcional com três interfaces:
 
 ```
 texto livre → FoodMatcher (spaCy + rapidfuzz) → dish_id
             → RecommendationEngine (SQLite + scorer) → top-N vinhos com breakdown
+            → CLI | API HTTP (FastAPI) | Frontend web (Next.js)
 ```
 
-Camadas de API HTTP e frontend ainda não estão implementadas.
+A API expõe `POST /api/recommend` e a interface web consome esse endpoint para renderizar
+os cards com rótulo do vinho, origem, características e links externos (Vivino, compra).
+O NLP também detecta **intenção de preço** na frase do usuário (ex: "vinho barato para
+sushi", "até R$ 80") — atualmente retornada na resposta para uso futuro no ranking.
 
 ---
 
@@ -53,7 +57,9 @@ Campos utilizados:
 | `style.food` | Categorias de comida que o vinho harmoniza (sinal principal) |
 | `taste.structure` | Acidez, corpo, tanino, doçura (escala 0–5) |
 | `taste.flavor` | Keywords de aroma/sabor em PT-BR |
+| `region` / `country` | Origem geográfica exibida nos cards |
 | Reviews | Rating calculado como média dos reviews individuais |
+| `reviews[].vintage.image` | URL do rótulo (preferindo `bottle_large` → `large` → `location`) |
 
 ---
 
@@ -88,31 +94,31 @@ O que você vai comer hoje? -> sushi variado
 
 🍷 TOP 5 VINHOS RECOMENDADOS:
  1. Quinta de Chocapalha - Guarita da Chocapalha
-    ⭐ 4.2 | Score Total: 0.782 | Detalhes: [Food: 0.85] [Flavor: 0.60] [Struct: 0.90]
+    📍 Portugal · Lisboa
+    ⭐ 4.2 | Score: 0.782 | [Food: 0.85] [Flavor: 0.60] [Struct: 0.90]
+    🏷️  Características: cítrico, maçã verde, mineral
+    🖼️  Imagem: https://images.vivino.com/...
+    🍇 Vivino: https://www.vivino.com/w/7772453
+    🛒 Google Shopping: https://www.google.com/search?q=...&tbm=shop
  ...
 ```
 
-A estrutura de dados retornada pelo `RecommendationEngine.recommend()`:
+Cada recomendação inclui:
 
-```json
-{
-  "id": 7772453,
-  "name": "...",
-  "winery": "...",
-  "type_id": 2,
-  "rating": 4.2,
-  "structure": {"body": 2, "acidity": 4, "tannin": 1, "sweetness": 1},
-  "score": {
-    "total_score": 0.782,
-    "components": {
-      "s_food": 0.85,
-      "s_flavor": 0.60,
-      "s_structure": 0.90,
-      "s_rating": 0.65
-    }
-  }
-}
-```
+| Campo | Descrição |
+|---|---|
+| `id`, `name`, `winery`, `type_id`, `rating`, `style_name` | metadados do vinho |
+| `country`, `region` | origem exibida no card |
+| `structure` | `{body, acidity, tannin, sweetness}` na escala 0–5 |
+| `image_url` | URL do rótulo (pode ser `null`) |
+| `vivino_url` | link para a página do vinho no Vivino |
+| `shop_url` | busca no Google Shopping (winery + nome) |
+| `characteristics` | keywords de aroma/sabor (flavors) |
+| `score.total_score` | score final em [0, 1] |
+| `score.components` | `{s_food, s_flavor, s_structure, s_rating}` — breakdown auditável |
+
+A resposta da API também inclui `price_intent` (`budget` / `moderate` / `premium`) e
+`max_price` quando detectados na frase do usuário.
 
 ---
 
@@ -123,13 +129,15 @@ A estrutura de dados retornada pelo `RecommendationEngine.recommend()`:
 | NLP | spaCy `pt_core_news_sm` + rapidfuzz + unidecode |
 | Dados | pandas, pyarrow, SQLite (com FTS5) |
 | Validação / serialização | PyYAML |
+| API | FastAPI + Uvicorn + Pydantic |
+| Frontend | Next.js 16, React 19, Tailwind 4, TypeScript |
 
 ---
 
 ## Estrutura do projeto
 
 ```
-HarmonizaAi/
+harmonizai/
 ├── data/
 │   ├── raw/                  # 437 JSONs da Vivino (não versionados)
 │   ├── interim/
@@ -139,21 +147,29 @@ HarmonizaAi/
 │   │   └── harmonizai.db     # tabelas: wines, wine_foods, wine_flavors, wines_fts
 │   └── dishes.yaml           # 101 pratos curados → atributos
 ├── src/
+│   ├── api/
+│   │   └── app.py            # API HTTP (FastAPI)
 │   ├── data/
 │   │   ├── merge_raw.py      # 437 JSONs → wines_all.jsonl
 │   │   └── normalize.py      # JSONL → parquet + SQLite
 │   ├── nlp/
-│   │   ├── pipeline.py       # FoodMatcher (PhraseMatcher exato + fuzzy fallback)
-│   │   ├── test_pipeline.py
-│   │   └── coverage_test.py  # avaliação com 50 queries sintéticas
+│   │   └── pipeline.py       # FoodMatcher (PhraseMatcher exato + fuzzy fallback)
 │   └── engine/
 │       ├── scorer.py         # cálculo dos componentes do score
 │       ├── recommender.py    # query no SQLite + ranking
-│       ├── interativo.py     # CLI ponta-a-ponta
-│       └── test_engine.py
+│       ├── metrics.py        # log de requisições
+│       └── cli.py            # CLI interativa ponta-a-ponta
+├── tests/
+│   ├── test_pipeline.py
+│   ├── test_engine.py
+│   ├── test_api.py
+│   └── test_coverage.py      # avaliação com 50 queries sintéticas
 ├── notebooks/
-│   └── exploration.ipynb     # EDA: cobertura, distribuições, vocabulário
-└── logs/
+│   ├── exploration.ipynb     # EDA: cobertura, distribuições, vocabulário
+│   ├── explore_nlp.ipynb     # experimentação no FoodMatcher
+│   └── explore_engine.ipynb  # experimentação no motor completo
+├── web/                      # frontend Next.js
+└── logs/                     # (gitignored)
 ```
 
 ---
@@ -161,17 +177,54 @@ HarmonizaAi/
 ## Como rodar
 
 ```bash
-# Dependências
-pip install spacy rapidfuzz unidecode pandas pyarrow pyyaml
+# 1. Dependências Python
+pip install spacy rapidfuzz unidecode pandas pyarrow pyyaml fastapi uvicorn
 python -m spacy download pt_core_news_sm
 
-# Preparar dados (executar em ordem, a partir da raiz do projeto)
-python src/data/merge_raw.py
-python src/data/normalize.py
+# 2. Preparar dados (executar em ordem, a partir da raiz do projeto)
+python -m src.data.merge_raw
+python -m src.data.normalize
 
-# CLI interativa (recomendação ponta-a-ponta)
-python -m src.engine.interativo
+# 3a. CLI interativa
+python -m src.engine.cli
+
+# 3b. API HTTP (porta 8000)
+uvicorn src.api.app:app --reload
+
+# 3c. Frontend web (porta 3000) — precisa da API rodando
+cd web
+npm install
+npm run dev
 ```
+
+Abra `http://localhost:3000` para usar a interface web.
+
+---
+
+## API
+
+`POST /api/recommend`
+
+```json
+{ "query": "sushi variado" }
+```
+
+Retorna o prato reconhecido, intenção de preço (se houver) e até 5 vinhos formatados
+com score, breakdown, imagem do rótulo e links para Vivino / Google Shopping.
+Cada requisição é logada na tabela `harmonization_requests` do SQLite via
+[src/engine/metrics.py](src/engine/metrics.py) (query, prato reconhecido, confiança,
+top-1, timestamp).
+
+---
+
+## Interface web
+
+Frontend em Next.js 16 (App Router) em [web/](web/):
+
+- Input livre com sugestões rápidas (Sushi, Risoto, Churrasco, Salmão grelhado)
+- Lista de 5 cards com estados de _loading_ (skeleton shimmer), _populated_, _not found_ e _error_
+- Cada card mostra rótulo (imagem ou silhueta colorida por tipo de vinho), nome, vinícola,
+  país · região, até 3 características, score e atalhos para Vivino e busca de compra
 
 ---
 
@@ -208,7 +261,7 @@ Em [src/nlp/pipeline.py](src/nlp/pipeline.py):
 2. **PhraseMatcher do spaCy** — busca exata sobre `display_name` + `aliases` de todos os pratos.
 3. **Fallback fuzzy** (`rapidfuzz.token_set_ratio ≥ 75`) — só dispara se a busca exata falhar; tolera ordem de palavras e palavras extras, mas pune queries com termos conflitantes.
 
-A cobertura atual é medida por [src/nlp/coverage_test.py](src/nlp/coverage_test.py) sobre 50 queries sintéticas.
+A cobertura atual é medida por [tests/test_coverage.py](tests/test_coverage.py) sobre 50 queries sintéticas.
 
 ---
 

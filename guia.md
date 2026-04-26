@@ -846,7 +846,7 @@ Esta seção documenta as evoluções planejadas, ordenadas por impacto e viabil
 
 **Objetivo**: permitir que o usuário encontre onde comprar o vinho recomendado sem sair da interface.
 
-**Status**: parcialmente implementado no CLI (`interativo.py` já gera a URL).
+**Status**: parcialmente implementado no CLI (`src/engine/cli.py` já gera a URL).
 
 **Para o frontend Streamlit** (`src/frontend/app.py`):
 ```python
@@ -954,7 +954,7 @@ for col in skeleton_cols:
 
 **Objetivo**: acumular dados de uso real para orientar melhorias futuras no modelo.
 
-**Status**: implementado em `src/engine/metrics.py` e integrado ao `interativo.py`.
+**Status**: implementado em `src/engine/metrics.py` e integrado ao `src/engine/cli.py`.
 
 **Tabela criada automaticamente** (`harmonization_requests`):
 
@@ -1029,7 +1029,7 @@ merged_dish = merge_dish_attributes(dish_list)  # media ponderada de target_stru
 ```
 
 #### 10.6.4 Cobertura do NLP — expansão do dishes.yaml
-A `coverage_test.py` mede taxa atual de reconhecimento em 50 queries sintéticas.
+A `tests/test_coverage.py` mede taxa atual de reconhecimento em 50 queries sintéticas.
 Meta: **90%+ de cobertura** com ≥ 150 pratos no YAML.
 Priorizar pratos que aparecem em queries reais (fonte: `harmonization_requests.query_text`).
 
