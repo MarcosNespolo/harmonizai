@@ -41,8 +41,13 @@ export interface ApiResponse {
   wines: Wine[];
 }
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+
+export function pingBackend(): void {
+  fetch(`${API_URL}/health`, { method: "GET", cache: "no-store" }).catch(() => {});
+}
+
 export async function fetchRecommendations(query: string): Promise<ApiResponse> {
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
   const response = await fetch(`${API_URL}/api/recommend`, {
     method: "POST",
     headers: {

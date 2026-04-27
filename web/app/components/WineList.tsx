@@ -5,12 +5,14 @@ const SLOT_COUNT = 5;
 interface WineListProps {
   state: WineListState;
   wines?: Wine[];
+  slowLoading?: boolean;
 }
 
-export function WineList({ state, wines = [] }: WineListProps) {
+export function WineList({ state, wines = [], slowLoading = false }: WineListProps) {
   const slots = Array.from({ length: SLOT_COUNT });
   const showEmpty = state === "empty";
-  const showLoading = state === "loading";
+  const showLoading = state === "loading" && !slowLoading;
+  const showSlowLoading = state === "loading" && slowLoading;
   const showPopulated = state === "populated";
   const showNotFound = state === "not_found";
   const showError = state === "error";
@@ -27,6 +29,11 @@ export function WineList({ state, wines = [] }: WineListProps) {
           visible={showLoading}
           icon={<Spinner className="h-3.5 w-3.5 text-primary" />}
           text="Buscando as melhores harmonizações…"
+        />
+        <StateCaption
+          visible={showSlowLoading}
+          icon={<Spinner className="h-3.5 w-3.5 text-primary" />}
+          text="Acordando o servidor, isso pode levar alguns segundos…"
         />
         <StateCaption
           visible={showPopulated}
