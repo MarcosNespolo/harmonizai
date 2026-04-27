@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { WineList } from "./components/WineList";
-import { fetchRecommendations, type Wine, type WineListState } from "./lib/wines";
+import { fetchRecommendations, pingBackend, type Wine, type WineListState } from "./lib/wines";
 
 const EXAMPLES = ["Sushi", "Risoto", "Churrasco", "Salmão grelhado"];
 
@@ -11,7 +11,13 @@ export default function Home() {
   const [input, setInput] = useState("");
   const [listState, setListState] = useState<WineListState>("empty");
   const [wines, setWines] = useState<Wine[]>([]);
+  const [slowLoading, setSlowLoading] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const slowTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    pingBackend();
+  }, []);
 
   const canSubmit = input.trim().length > 0 && listState !== "loading";
   const isPopulated = listState === "populated";
@@ -20,6 +26,8 @@ export default function Home() {
     if (!canSubmit) return;
     setListState("loading");
     setWines([]);
+    setSlowLoading(false);
+    slowTimerRef.current = setTimeout(() => setSlowLoading(true), 3000);
     try {
       const data = await fetchRecommendations(input);
       if (!data.dish) {
@@ -31,6 +39,12 @@ export default function Home() {
     } catch (error) {
       console.error(error);
       setListState("error");
+    } finally {
+      if (slowTimerRef.current) {
+        clearTimeout(slowTimerRef.current);
+        slowTimerRef.current = null;
+      }
+      setSlowLoading(false);
     }
   };
 
@@ -38,6 +52,11 @@ export default function Home() {
     setInput("");
     setWines([]);
     setListState("empty");
+    setSlowLoading(false);
+    if (slowTimerRef.current) {
+      clearTimeout(slowTimerRef.current);
+      slowTimerRef.current = null;
+    }
     textareaRef.current?.focus();
   };
 
@@ -164,7 +183,7 @@ export default function Home() {
         </section>
 
         <aside className="flex w-full items-center">
-          <WineList state={listState} wines={wines} />
+          <WineList state={listState} wines={wines} slowLoading={slowLoading} />
         </aside>
       </main>
     </div>

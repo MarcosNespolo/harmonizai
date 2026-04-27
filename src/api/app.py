@@ -51,6 +51,10 @@ def _google_shopping_url(wine_name: str, winery: str) -> str:
     encoded = query.replace(" ", "+")
     return f"https://www.google.com/search?q={encoded}&tbm=shop"
 
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
+
 @app.post("/api/recommend")
 async def recommend(request: RecommendRequest):
     query = request.query.strip()
