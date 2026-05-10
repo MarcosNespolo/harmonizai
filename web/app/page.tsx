@@ -3,17 +3,26 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { WineList } from "./components/WineList";
-import { fetchRecommendations, pingBackend, type Wine, type WineListState } from "./lib/wines";
+import {
+  fetchRecommendations,
+  pingBackend,
+  PRICE_RANGES,
+  type Wine,
+  type WineListState,
+} from "./lib/wines";
 
 const EXAMPLES = ["Sushi", "Risoto", "Churrasco", "Salmão grelhado"];
 
 export default function Home() {
   const [input, setInput] = useState("");
+  const [priceRangeId, setPriceRangeId] = useState<string>(PRICE_RANGES[0].id);
   const [listState, setListState] = useState<WineListState>("empty");
   const [wines, setWines] = useState<Wine[]>([]);
   const [slowLoading, setSlowLoading] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const slowTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const priceRange = PRICE_RANGES.find((r) => r.id === priceRangeId) ?? PRICE_RANGES[0];
 
   useEffect(() => {
     pingBackend();
@@ -29,13 +38,13 @@ export default function Home() {
     setSlowLoading(false);
     slowTimerRef.current = setTimeout(() => setSlowLoading(true), 3000);
     try {
-      const data = await fetchRecommendations(input);
+      const data = await fetchRecommendations(input, priceRange);
       if (!data.dish) {
         setListState("not_found");
         return;
       }
       setWines(data.wines);
-      setListState("populated");
+      setListState(data.wines.length === 0 ? "no_price_match" : "populated");
     } catch (error) {
       console.error(error);
       setListState("error");
@@ -50,6 +59,7 @@ export default function Home() {
 
   const handleReset = () => {
     setInput("");
+    setPriceRangeId(PRICE_RANGES[0].id);
     setWines([]);
     setListState("empty");
     setSlowLoading(false);
@@ -179,6 +189,30 @@ export default function Home() {
                 </button>
               ))}
             </div>
+
+            <fieldset className="flex flex-col gap-1.5 pt-2">
+              <legend className="text-[12px] text-ink-muted">Faixa de preço</legend>
+              <div className="flex flex-wrap gap-1.5">
+                {PRICE_RANGES.map((range) => {
+                  const selected = range.id === priceRangeId;
+                  return (
+                    <button
+                      key={range.id}
+                      type="button"
+                      onClick={() => setPriceRangeId(range.id)}
+                      aria-pressed={selected}
+                      className={`rounded-full border px-2.5 py-1 text-[12px] transition cursor-pointer ${
+                        selected
+                          ? "border-primary/40 bg-primary/10 text-primary"
+                          : "border-border/70 bg-transparent text-ink-muted hover:border-primary/30 hover:text-primary"
+                      }`}
+                    >
+                      {range.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </fieldset>
           </form>
         </section>
 

@@ -1,6 +1,7 @@
 import sys
 import os
 from contextlib import asynccontextmanager
+from typing import Optional
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -16,6 +17,8 @@ from src.engine.metrics import HarmonizationMetrics
 # Modelos
 class RecommendRequest(BaseModel):
     query: str
+    price_min: Optional[float] = None
+    price_max: Optional[float] = None
 
 # Instâncias globais
 matcher: FoodMatcher = None
@@ -85,8 +88,13 @@ async def recommend(request: RecommendRequest):
     if not dish_data:
         raise HTTPException(status_code=500, detail="Erro interno: prato não encontrado na base de dados.")
 
-    # 2. Recomendação
-    recommendations = engine.recommend(dish_data, limit=5)
+    # 2. Recomendação (aplica filtro de preço escolhido pelo usuário antes do ranking)
+    recommendations = engine.recommend(
+        dish_data,
+        limit=5,
+        price_min=request.price_min,
+        price_max=request.price_max,
+    )
 
     # 3. Formatação da resposta
     formatted_wines = []

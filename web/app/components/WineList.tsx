@@ -15,6 +15,7 @@ export function WineList({ state, wines = [], slowLoading = false }: WineListPro
   const showSlowLoading = state === "loading" && slowLoading;
   const showPopulated = state === "populated";
   const showNotFound = state === "not_found";
+  const showNoPriceMatch = state === "no_price_match";
   const showError = state === "error";
 
   return (
@@ -50,6 +51,11 @@ export function WineList({ state, wines = [], slowLoading = false }: WineListPro
           visible={showNotFound}
           icon={<span className="text-xl leading-none">❌</span>}
           text="Não consegui reconhecer o prato. Tente ser mais específico."
+        />
+        <StateCaption
+          visible={showNoPriceMatch}
+          icon={<span className="text-xl leading-none">💸</span>}
+          text="Nenhum vinho encontrado nessa faixa de preço. Amplie o intervalo."
         />
         <StateCaption
           visible={showError}
@@ -160,9 +166,17 @@ function WineCard({ state, wine }: { state: WineListState; wine?: Wine }) {
               ))}
             </div>
             <div className="mt-auto flex flex-row gap-2 sm:gap-0 items-center justify-between">
-              <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-                {Math.min(100, Math.round(wine.score.total_score * 100))}%
+              <div className="flex items-center gap-2">
+                <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                  {Math.min(100, Math.round(wine.score.total_score * 100))}%
+                </div>
+                <span
+                  title="Estimativa baseada em rating, corpo e tipo"
+                  className="text-[11px] font-medium text-ink-muted"
+                >
+                  ~ {formatBrl(wine.price_brl)}
+                </span>
               </div>
               <div className="flex gap-3">
                 <a href={wine.vivino_url} target="_blank" rel="noreferrer" className="text-[11px] font-medium hover:text-primary transition-colors text-ink-subtle">Vivino</a>
@@ -174,6 +188,14 @@ function WineCard({ state, wine }: { state: WineListState; wine?: Wine }) {
       </div>
     </article>
   );
+}
+
+function formatBrl(value: number) {
+  return new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+    maximumFractionDigits: 0,
+  }).format(value);
 }
 
 function getWineColor(typeId: number) {
