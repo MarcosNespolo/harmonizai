@@ -4,35 +4,6 @@ import os
 from .scorer import calculate_total_score
 
 
-def estimate_price_brl(wine_id: int, avg_rating, body, type_id: int) -> float:
-    """Estima um preço em BRL determinístico baseado em rating, corpo e tipo.
-
-    A base de dados não traz preço real; a estimativa serve para filtros de
-    faixa e exibição como referência. O resultado é estável: mesmo vinho
-    sempre devolve o mesmo valor.
-    """
-    rating = avg_rating if avg_rating is not None else 3.7
-    body_val = body if body is not None else 3.0
-
-    # Crescimento exponencial com rating (3.5 → ~30, 4.0 → ~71, 4.5 → ~170, 4.7 → ~240)
-    base = 30 * (2.0 ** ((rating - 3.5) / 0.4))
-
-    # Vinhos mais encorpados costumam custar mais
-    base *= 1 + max(0.0, body_val - 3.5) * 0.06
-
-    # Ajuste por tipo: 1=Tinto, 2=Branco, 3=Espumante, 4=Rosé, 7=Fortificado, 24=Sobremesa
-    type_factor = {1: 1.0, 2: 0.9, 3: 1.2, 4: 0.85, 7: 1.1, 24: 1.15}.get(type_id, 1.0)
-    base *= type_factor
-
-    # Espalhamento determinístico dentro da faixa (-20% a +25%)
-    spread_seed = (int(wine_id) * 2654435761) & 0xFFFFFFFF
-    spread = ((spread_seed % 46) - 20) / 100.0
-    base *= 1 + spread
-
-    # Arredonda em múltiplos de R$5 para visual limpo, mínimo R$25
-    return max(25.0, round(base / 5.0) * 5.0)
-
-
 class RecommendationEngine:
     def __init__(self, db_path: str = None):
         if not db_path:
@@ -69,30 +40,39 @@ class RecommendationEngine:
             allowed_types = [1, 2, 3, 4]
             
         placeholders = ','.join(['?']*len(allowed_types))
-        
+
+        # price_brl pode não existir em DBs antigos; checa antes pra manter compat
+        cols = {row[1] for row in cursor.execute("PRAGMA table_info(wines)").fetchall()}
+        has_price = "price_brl" in cols
+        price_select = ", price_brl" if has_price else ", NULL AS price_brl"
+
         query = f"""
-            SELECT 
+            SELECT
                 id, name, winery, type_id, avg_rating,
                 body, acidity_raw, tannin, sweetness, style_name,
-                country, region, image_url
+                country, region, image_url{price_select}
             FROM wines
             WHERE type_id IN ({placeholders})
         """
-        
+
         cursor.execute(query, allowed_types)
         wines = cursor.fetchall()
-        
+
+        price_filter_active = price_min is not None or price_max is not None
         recommendations = []
-        
+
         for w in wines:
-            wine_id, name, winery, type_id, avg_rating, body, acidity, tannin, sweetness, style_name, country, region, image_url = w
+            (wine_id, name, winery, type_id, avg_rating, body, acidity, tannin,
+             sweetness, style_name, country, region, image_url, price_brl) = w
 
             # Hard constraint de preço (faixa escolhida pelo usuário)
-            price_brl = estimate_price_brl(wine_id, avg_rating, body, type_id)
-            if price_min is not None and price_brl < price_min:
-                continue
-            if price_max is not None and price_brl > price_max:
-                continue
+            if price_filter_active:
+                if price_brl is None:
+                    continue  # sem preço conhecido → fora do filtro
+                if price_min is not None and price_brl < price_min:
+                    continue
+                if price_max is not None and price_brl > price_max:
+                    continue
 
             # URL pública da página do vinho no Vivino
             vivino_url = f"https://www.vivino.com/w/{wine_id}"

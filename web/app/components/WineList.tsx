@@ -171,12 +171,11 @@ function WineCard({ state, wine }: { state: WineListState; wine?: Wine }) {
                   <span className="h-1.5 w-1.5 rounded-full bg-primary" />
                   {Math.min(100, Math.round(wine.score.total_score * 100))}%
                 </div>
-                <span
-                  title="Estimativa baseada em rating, corpo e tipo"
-                  className="text-[11px] font-medium text-ink-muted"
-                >
-                  ~ {formatBrl(wine.price_brl)}
-                </span>
+                {wine.price_brl != null && (
+                  <span className="text-[11px] font-medium text-ink-muted">
+                    {formatBrl(wine.price_brl)}
+                  </span>
+                )}
               </div>
               <div className="flex gap-3">
                 <a href={wine.vivino_url} target="_blank" rel="noreferrer" className="text-[11px] font-medium hover:text-primary transition-colors text-ink-subtle">Vivino</a>

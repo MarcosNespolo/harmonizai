@@ -185,6 +185,12 @@ python -m spacy download pt_core_news_sm
 python -m src.data.merge_raw
 python -m src.data.normalize
 
+# 2b. (opcional) Coletar preços em BRL da Vivino e gravar no banco.
+#     Necessário rodar localmente: o ambiente de produção bloqueia a API.
+#     O scraper é resumível — pode interromper com Ctrl+C e rodar de novo.
+python -m src.data.fetch_prices    # → data/interim/prices.jsonl
+python -m src.data.load_prices     # popula wines.price_brl no SQLite
+
 # 3a. CLI interativa
 python -m src.engine.cli
 

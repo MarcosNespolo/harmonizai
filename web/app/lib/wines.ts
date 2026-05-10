@@ -44,7 +44,7 @@ export interface Wine {
   region: string;
   image_url: string | null;
   vivino_url: string;
-  price_brl: number;
+  price_brl: number | null;
   score: WineScore;
   characteristics: string[];
   shop_url: string;
